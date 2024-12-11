@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <script src="shop.js" defer></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">Support</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="navbar-center">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="navbar-right">
+
+            <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+            <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+        </div>
+    </div>
+    <div class="container">
+        <div class="filters">
+            <h2>Filters</h2>
+            <button class="clear-filters" id="clear-filters">Clear filters</button>
+            
+            <div class="filter-category">
+                <h3>Type</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="side-by-side" name="type" value="side-by-side">
+                        <label for="side-by-side">Side by Side Refrigerators</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="one-door" name="type" value="one-door">
+                        <label for="one-door">One Door Fridges </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="instaview" name="type" value="instaview">
+                        <label for="instaview">InstaView™ Door-in-Door®</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="door-in-door" name="type" value="door-in-door">
+                        <label for="door-in-door">Door-in-Door®</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="multi-door" name="type" value="multi-door">
+                        <label for="multi-door">Multi Door Refrigerator</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="double-door" name="type" value="double-door">
+                        <label for="double-door">Double Door Refrigerator</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-category">
+                <h3>Features</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="hygiene-fresh" name="features" value="hygiene-fresh">
+                        <label for="hygiene-fresh">Hygiene Fresh</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="ice-water" name="features" value="ice-water">
+                        <label for="ice-water">Ice & Water Dispenser</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="instaview-door" name="features" value="instaview-door">
+                        <label for="instaview-door">InstaView™ Door-in-Door®</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="door-cooling" name="features" value="door-cooling">
+                        <label for="door-cooling">Door Cooling+</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="smart-diagnosis" name="features" value="smart-diagnosis">
+                        <label for="smart-diagnosis">Smart Diagnosis™</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-category">
+                <h3>Smart Technology</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="thinq" name="smart-tech" value="thinq">
+                        <label for="thinq">ThinQ(Wi-Fi)</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-category">
+                <h3>Capacity</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="600l-more" name="capacity" value="600l-more">
+                        <label for="600l-more">600L or more</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="400-600l" name="capacity" value="400-600">
+                        <label for="400-600l">400-600L</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-grid">
+ 
+    <div class="product-card" data-type="side-by-side" data-features="instaview-door" data-capacity="600l-more">
+        <img src="./pic/674l.jpg" alt="674L Side by Side Fridge with InstaView Door-in-Door™ in Matt Black">
+        <h3>674L Side by Side Fridge with InstaView Door-in-Door™ in Matt Black</h3>
+        <p>RS 200,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="side-by-side" data-features="instaview-door" data-capacity="600l-more">
+        <img src="./pic/617l.jpg" alt="617L side-by-side-fridge with InstaView Door-in-Door™ in New Noble Steel">
+        <h3>617L Side-by-Side Fridge with InstaView Door-in-Door™ in New Noble Steel</h3>
+        <p>RS 352,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="side-by-side" data-features="linear-compressor" data-capacity="600l-more">
+        <img src="./pic/694L.jpg" alt="694L side-by-side-fridge with Linear Compressor in Platinum Silver">
+        <h3>694L Side-by-Side Fridge with Linear Compressor in Platinum Silver</h3>
+        <p>RS 211,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="one-door" data-features="fast-ice" data-capacity="400-600">
+        <img src="./pic/185L.jpg" alt="185 L, Fastest In Ice Making">
+        <h3>185L One Door Fridge with Fastest Ice Making</h3>
+        <p>RS 200,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="one-door" data-features="fast-ice" data-capacity="400-600">
+        <img src="./pic/LG 185L.jpg" alt="LG 185L One Door Fridge with Ice Making">
+        <h3>LG 185L One Door Fridge with Ice Making</h3>
+        <p>RS 352,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="top-freezer" data-features="linear-compressor" data-capacity="400-600">
+        <img src="./pic/506L.jpg" alt="506L Top Freezer with Inverter Linear Compressor in Platinum Silver">
+        <h3>506L Top Freezer with Inverter Linear Compressor in Platinum Silver</h3>
+        <p>RS 211,000</p>
+        <button>Add to Cart</button>
+    </div>
+
+ 
+    <div class="product-card" data-type="double-door" data-features="hygiene-fresh,door-cooling" data-capacity="400-600">
+        <img src="./pic/500L.jpg" alt="500L Double Door Fridge with Hygiene Fresh and Door Cooling">
+        <h3>500L Double Door Fridge with Hygiene Fresh and Door Cooling</h3>
+        <p>RS 250,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="side-by-side" data-features="ice-water,instaview-door" data-capacity="600l-more">
+        <img src="./pic/700L.jpg" alt="700L Side-by-Side Fridge with Ice & Water Dispenser">
+        <h3>700L Side-by-Side Fridge with Ice & Water Dispenser</h3>
+        <p>RS 380,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="multi-door" data-features="hygiene-fresh,thinq" data-capacity="600l-more">
+        <img src="./pic/750L.jpg" alt="750L Multi Door Fridge with Hygiene Fresh and Wi-Fi">
+        <h3>750L Multi Door Fridge with Hygiene Fresh and Wi-Fi</h3>
+        <p>RS 410,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="top-freezer" data-features="smart-diagnosis" data-capacity="400-600">
+        <img src="./pic/450L.jpg" alt="450L Top Freezer with Smart Diagnosis">
+        <h3>450L Top Freezer with Smart Diagnosis</h3>
+        <p>RS 220,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="one-door" data-features="door-cooling" data-capacity="400-600">
+        <img src="./pic/200L.jpg" alt="200L One Door Fridge with Door Cooling">
+        <h3>200L One Door Fridge with Door Cooling</h3>
+        <p>RS 180,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="double-door" data-features="hygiene-fresh,ice-water" data-capacity="400-600">
+        <img src="./pic/480L.jpg" alt="480L Double Door Fridge with Ice Water Dispenser and Hygiene Fresh">
+        <h3>480L Double Door Fridge with Ice Water Dispenser and Hygiene Fresh</h3>
+        <p>RS 290,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="multi-door" data-features="door-cooling,instaview-door" data-capacity="600l-more">
+        <img src="./pic/770L.jpg" alt="770L Multi Door Fridge with InstaView Door-in-Door and Door Cooling">
+        <h3>770L Multi Door Fridge with InstaView Door-in-Door and Door Cooling</h3>
+        <p>RS 420,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="side-by-side" data-features="hygiene-fresh,smart-diagnosis" data-capacity="600l-more">
+        <img src="./pic/650L.jpg" alt="650L Side-by-Side Fridge with Smart Diagnosis">
+        <h3>650L Side-by-Side Fridge with Smart Diagnosis</h3>
+        <p>RS 320,000</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product-card" data-type="one-door" data-features="thinq" data-capacity="400-600">
+        <img src="./pic/300L.jpg" alt="300L One Door Fridge with Wi-Fi Connectivity">
+        <h3>300L One Door Fridge with Wi-Fi Connectivity</h3>
+        <p>RS 190,000</p>
+        <button>Add to Cart</button>
+    </div>
+</div>
+
+    </div>
+</body>
+<footer>
+    <div class="footer">
+        <div class="logo"><img src="images/logo.png"></div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>Contact no: <span class="bold">123-456-7890</span></p>
+            <p>Email: <span class="bold">canonappliances@email.com</span></p>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="shop.html">Top Freezer Refrigerator</a>
+            <a href="shop.html">Door-in-Door</a>
+            <a href="shop.html">Side by Side Refrigerator</a>
+            <a href="shop.html">Insta Door-in-Door</a>
+        </div>
+        <div class="footer-column">
+            <h3>About</h3>
+            <a href="about.html">About Us</a>
+            <a href="about.html">Responsibility</a>
+            <a href="about.html">Technology & Innovation</a>
+            <a href="about.html">Explore our stories</a>
+        </div>
+        <div class="footer-column">
+            <h3>Social</h3>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/instagram.png"alt="Instagram"></a>
+                <a href="#"><img src="images/x.png" alt="Twitter"></a>
+                <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
+

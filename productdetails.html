@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="productdetails.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">Support</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="navbar-center">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="navbar-right">
+
+            <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+            <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+        </div>
+    </div>
+    <main class="main-container">
+        <div class="product">
+            <div class="image-gallery">
+                <div class="thumbnail selected"><img src="images/samsung700L.png"></div>
+                <div class="thumbnail"><img src="images/thumbnail2.png"></div>
+                <div class="thumbnail"><img src="images/thumbnail3.png"></div>
+                <div class="thumbnail"><img src="images/thumbnail4.png"></div>
+            </div>
+            <div class="main-image"><img src="images/samsung700L.png"></div>
+            <div class="details">
+                <p><strong>Brand:</strong> SAMSUNG</p>
+                <p><strong>Availability:</strong> Only 2 in Stock</p>
+                <h1>SAMSUNG RS72R5011SL - 700 LITRES INVERTER SIDE BY SIDE REFRIGERATOR</h1>
+                <ul class="features">
+                    <li>LinearCooling™</li>
+                    <li>DoorCooling+™</li>
+                    <li>UltraSleek Door</li>
+                    <li>Large Capacity</li>
+                    <li>Smart Inverter Compressor™</li>
+                </ul>
+                <p class="price">
+                    <span class="current-price">RS 213,000</span>
+                    <span class="old-price">RS 230,000</span>
+                </p>
+                <div class="actions">
+                    <input type="number" value="1" class="quantity">
+                    <button class="buy-now">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab active" data-tab="description">Description</button>
+            <button class="tab" data-tab="specification">Specification</button>
+            <button class="tab" data-tab="reviews">Reviews</button>
+        </div>
+        <div class="tab-content">
+            <div class="tab-panel" id="description">
+                <p>Model - RS72R5011SL 700 Litres Capacity Stainless Steel Color SpaceMax™ Technology Sleek & Seamless Design All-around Cooling Digital Inverter Technology Item Weight: 101 kg Item Dimensions - 175 × 91 × 178 cm</p>
+            </div>
+            <div class="tab-panel hidden" id="specification">
+                <p>Specifications: <br> Energy Rating: 5 Star <br> Power Consumption: 200W <br> Cooling Technology: SpaceMax™</p>
+            </div>
+            <div class="tab-panel hidden" id="reviews">
+                <p>Customer Reviews: <br> 1. Excellent product! - 5/5 <br> 2. Value for money - 4/5</p>
+            </div>
+        </div>
+    </main>
+    <script src="productdetails.js"></script>
+</body>
+<footer>
+    <div class="footer">
+        <div class="logo"><img src="images/logo.png"></div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>Contact no: <span class="bold">123-456-7890</span></p>
+            <p>Email: <span class="bold">canonappliances@email.com</span></p>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="shop.html">Top Freezer Refrigerator</a>
+            <a href="shop.html">Door-in-Door</a>
+            <a href="shop.html">Side by Side Refrigerator</a>
+            <a href="shop.html">Insta Door-in-Door</a>
+        </div>
+        <div class="footer-column">
+            <h3>About</h3>
+            <a href="about.html">About Us</a>
+            <a href="about.html">Responsibility</a>
+            <a href="about.html">Technology & Innovation</a>
+            <a href="about.html">Explore our stories</a>
+        </div>
+        <div class="footer-column">
+            <h3>Social</h3>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/instagram.png"alt="Instagram"></a>
+                <a href="#"><img src="images/x.png" alt="Twitter"></a>
+                <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

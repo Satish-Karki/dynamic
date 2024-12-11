@@ -1,0 +1,137 @@
+ * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F5F7FA;
+            margin: 0;
+            padding: 0;
+        }
+        .contents{
+            display:flex;
+                }
+
+
+        .order-details {
+            width:1083px;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom:20px;
+        }
+
+        .order-details h1 {
+            font-size: 24px;
+            margin: 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .status .step {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .status .step:not(:last-child)::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background-color: #e0e0e0;
+            margin: 0 10px;
+        }
+
+        .status .step.completed {
+            color: #28a745;
+        }
+
+        .status .step.completed::after {
+            background-color: #28a745;
+        }
+
+        .status .step.completed .icon {
+            background-color: #28a745;
+        }
+
+        .status .icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .order-items {
+            margin-top: 20px;
+            margin-bottom:20px;
+        }
+
+        .order-items .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .order-items .item:last-child {
+            border-bottom: none;
+        }
+
+        .order-items .item .description {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .order-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .order-summary .column {
+            flex: 1;
+        }
+
+        .order-summary .column:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        .order-summary .column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .column .info {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .column .info:last-child {
+            margin-bottom: 0;
+        }
+
+        .order-summary .column .info p {
+            margin: 0;
+        }
+
+        .order-summary .total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+        }

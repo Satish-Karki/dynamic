@@ -1,0 +1,61 @@
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Sign In</title>
+           <link rel="stylesheet" href="signup.css">
+           <link rel="stylesheet" href="navbar.css">
+     
+        </head>
+        <body>
+            <div class="navbar">
+                <div class="navbar">
+                    <div class="navbar-left">
+                        <a href="home.html">Home</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="#">Support</a>
+                        <a href="about.html">About</a>
+                    </div>
+                    <div class="navbar-center">
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="navbar-right">
+            
+                        <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+                        <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+                    </div>
+                </div>
+            <div class="contents">
+                <form id="signup-form" name="signup-box">
+                    <h2>Sign Up</h2>
+                    <div class="input-fields">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" name="uname" id="uname" placeholder="Your username">
+                        <label for="email"><b>Email</b></label>
+                        <input type="email" name="email" id="email" placeholder="Your email">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" name="password" id="password" placeholder="Password">
+                        <label for="cpwd"><b>Confirm Password</b></label>
+                        <input type="password" name="cpwd" id="cpwd" placeholder="Confirm Password">
+                        <label for="options"><b>Sign Up as:</b></label>
+                        <select id="options" name="options">
+                            <option value="">Select an option</option>
+                            <option value="Vendor">Vendor</option>
+                            <option value="Customer">Customer</option>
+                        </select>
+                    </div>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="terms"> I accept the terms and privacy policy
+                    </label>
+                    <button type="submit" class="btn">Sign up</button>
+                    <div class="others">
+                        <p>Already have an account?</p>
+                        <a href="login.html"><b>Login</b></a>
+                    </div>
+                </form>
+            </div>
+            <script src="signup.js"></script>
+        </body>
+        </html>

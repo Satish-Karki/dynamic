@@ -1,0 +1,31 @@
+body{
+    background-color:    #F5F6FA;
+}
+
+
+.tyelements{
+
+    display: flex;
+    flex-direction: column;
+    gap:100px;
+    padding:20px;
+    margin-top:2%;
+    text-align: center;
+     background-color: #fff;
+}
+.tyup p{
+    text-decoration: underline;
+    font-size: 3em;
+}
+.tyelements img{
+    height:100px;
+}
+.tyup{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+
+}
+.tyelements p{
+    font-weight: bold;
+}

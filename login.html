@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="navbar.css">
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="home.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">Support</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="navbar-center">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="navbar-right">
+
+            <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+            <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+        </div>
+    </div>
+    <div class="contents">
+        <form action="check.php" method="POST" name="login-box" onsubmit="validateForm(event)">
+            <h2>Log in</h2>
+            <div class="input-fields">
+                <label for="email"><b>Email</b></label>
+                <input type="email" name="email" id="email" placeholder="Your email" >
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="password" id="password" placeholder="Password" >
+            </div>
+            <div class="other-inputs">
+                <label class="custom-checkbox">
+                    <input type="checkbox"> Remember me
+                </label>
+                <a href="forgot.php">Forgot Password?</a>
+            </div>
+            <button type="submit" name="submit" class="btn">Login</button>
+            <div class="others">
+                <p>OR</p>
+                <button id="button" type="button"><img src="images/Google.png" alt="Google">Continue with Google</button>
+                <a href="signup.html">or create an account</a>
+            </div>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

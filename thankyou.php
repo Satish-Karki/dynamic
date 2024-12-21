@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thankyou</title>
+        <link rel="stylesheet" href="thankyou.css"> 
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="footer.css">
+</head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="home.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="#">Support</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="navbar-center">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="navbar-right">
+    
+                <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
+                <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+            </div>
+        </div>
+      
+            <div class="tyelements">
+              <div class="tyup">  <img src="images/tick.png"><p>Thank You!</p></div>
+                <div class="tydown">
+                    <p> Your order has beeen placed successfully. please check your email for order details and follow the provided instructions for delivery and support
+                    </p>
+                <div>
+                    <img src="images/man.png">
+            </div>
+
+</body>
+<footer>
+    <div class="footer">
+        <div class="logo"><img src="images/logo.png"></div>
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>Contact no: <span class="bold">123-456-7890</span></p>
+            <p>Email: <span class="bold">canonappliances@email.com</span></p>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="shop.html">Top Freezer Refrigerator</a>
+            <a href="shop.html">Door-in-Door</a>
+            <a href="shop.html">Side by Side Refrigerator</a>
+            <a href="shop.html">Insta Door-in-Door</a>
+        </div>
+        <div class="footer-column">
+            <h3>About</h3>
+            <a href="about.html">About Us</a>
+            <a href="about.html">Responsibility</a>
+            <a href="about.html">Technology & Innovation</a>
+            <a href="about.html">Explore our stories</a>
+        </div>
+        <div class="footer-column">
+            <h3>Social</h3>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/instagram.png"alt="Instagram"></a>
+                <a href="#"><img src="images/x.png" alt="Twitter"></a>
+                <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

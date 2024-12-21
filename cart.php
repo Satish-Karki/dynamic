@@ -1,32 +1,35 @@
 <?php 
-    session_start();
-    include "navbar.php";
-    include "databaseconn.php";
+session_start();
+include "navbar.php";
+include "databaseconn.php";
 
-    if (!isset($_SESSION['user_login'])) {
-        header("location:login.php");
-        exit;
-    }
+if (!isset($_SESSION['user_login'])) {
+    header("location:login.php");
+    exit;
+}
 
-    $customerID = intval($_SESSION['user_login']); 
+$customerID = intval($_SESSION['user_login']); 
 
-    $sql = "
-        SELECT 
-            carts.CartID, 
-            carts.Quantity, 
-            products.ProductID,
-            products.Name AS ProductName,
-            users.Name AS VendorName, 
-            products.Price AS UnitPrice,
-            products.Category
-        FROM carts
-        INNER JOIN products ON carts.ProductID = products.ProductID
-        INNER JOIN users ON products.VendorID = users.UserID
-        WHERE carts.CustomerID = $customerID
-    ";
+$sql = "
+    SELECT 
+        carts.CartID, 
+        carts.Quantity, 
+        products.ProductID,
+        products.Name AS ProductName,
+        users.Name AS VendorName, 
+        products.Price AS UnitPrice,
+        products.Category
+    FROM carts
+    INNER JOIN products ON carts.ProductID = products.ProductID
+    INNER JOIN users ON products.VendorID = users.UserID
+    WHERE carts.CustomerID = $customerID
+";
 
-    $result = mysqli_query($conn, $sql);
-    $lastCartID = null; // Variable to store the last CartID
+$result = mysqli_query($conn, $sql);
+$cartItems = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $cartItems[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +46,9 @@
         <h1 class="title">Your Cart</h1>
         <p class="subtitle">Not ready to checkout? <a href="shop.php" style="text-decoration: underline;">Continue Shopping</a></p>
         
-        <?php if (mysqli_num_rows($result) > 0): ?>
+        <?php if (!empty($cartItems)): ?>
             <div id="cart-items">
-                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <?php foreach ($cartItems as $row): ?>
                     <div class="cart-item" data-cart-id="<?php echo $row['CartID']; ?>" data-unit-price="<?php echo $row['UnitPrice']; ?>">
                         <img src="./pic/top_door.jpg" alt="Product Image">
                         <div class="cart-item-details">
@@ -70,8 +73,7 @@
                             <p class="cart-item-total">$<?php echo number_format($row['UnitPrice'] * $row['Quantity'], 2); ?></p>
                         </div>
                     </div>
-                    <?php $lastCartID = $row['CartID']; ?> <!-- Store the last CartID -->
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             </div>
             <div class="grand-total">
                 <h2>Total: $<span id="grand-total">0.00</span></h2>
@@ -86,8 +88,8 @@
                 <button class="button" id="clear-cart">Clear Cart</button>
             </div>
             <div class="proceedcheckout">
-                <?php if ($lastCartID): ?>
-                    <a href="checkout.php?id=<?php echo $lastCartID; ?>"><button class="button primary">Proceed to Checkout</button></a>
+                <?php if (!empty($cartItems)): ?>
+                    <a href="checkout.php?from=cart"><button class="button primary">Proceed to Checkout</button></a>
                 <?php endif; ?>
             </div>
         </div>

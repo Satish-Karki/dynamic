@@ -9,9 +9,11 @@
 </head>
 <body>
     <?php session_start(); 
-    if(!isset($_SESSION['user_login'])&&$_SESSION['usertype']!='Vendor'){
+    if (!isset($_SESSION['user_login']) || $_SESSION['user_type'] != 'Vendor') {
         header("location:login.php");
+        exit(); 
     }
+    
         include "navbar.php";
         include "databaseconn.php";?>
     <div class="dashboard">

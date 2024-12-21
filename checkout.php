@@ -1,3 +1,39 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['user_login'])) {
+    header("Location: login.php");
+    exit();
+}
+
+include "databaseconn.php";
+
+$productID = isset($_GET['id']) ? intval($_GET['id']) : null;
+$product = null;
+
+if ($productID) {
+    $sql = "SELECT ProductID, Name, Price FROM products WHERE ProductID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $productID);
+    $stmt->execute();
+    $product = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+
+   
+    if (!$product) {
+        header("Location: home.php");
+        exit();
+    }
+}
+
+if (!$productID) {
+    header("Location: home.php");
+    exit();
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,57 +44,38 @@
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <?php 
-    session_start();
-    if(!isset($_POST['submit']))
-    {
-        header("location:login.php");
-    }
-    include "navbar.php";
-    include "databaseconn.php";
-   
-    ?>
+    <?php include "navbar.php"; ?>
 
     <div class="container">
         <div class="checkout-form">
             <h1>Checkout</h1>
-            <form action="place_order.php" method="POST" name="checkout">
+            <form action="place_order.php" method="POST">
+                <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($productID ?? ''); ?>">
                 <div class="section">
-                    <div class="sectionone">
-                        <h2>Address & Payment</h2>
-                    </div>
+                    <h2>Address & Payment</h2>
                     <label for="Name">Name</label>
-                    <input type="text" id="Name" name="name" placeholder="Your Name" value="" required>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" name="address" placeholder="Address" value="" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" name="city" placeholder="City" value="" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <select id="country" name="country" required>
-                            <option value="usa">USA</option>
-                            <option value="canada">Canada</option>
-                            <option value="uk">United Kingdom</option>
-                            <option value="nepal">Nepal</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="zipcode">Zipcode</label>
-                        <input type="text" id="zipcode" name="zipcode" placeholder="Zipcode" value="" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" value="" required>
-                    </div>
+                    <input type="text" id="Name" name="name" placeholder="Your Name" required>
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Address" required>
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="City" required>
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="usa">USA</option>
+                        <option value="canada">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="nepal">Nepal</option>
+                    </select>
+                    <label for="zipcode">Zipcode</label>
+                    <input type="text" id="zipcode" name="zipcode" placeholder="Zipcode" required>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                 </div>
-                <button type="submit" class="btn" name="submit">Place Order</button>
+                <button type="submit" class="btn" name="submit" aria-label="Place your order">Place Order</button>
             </form>
         </div>
     </div>
+
+    <?php include "footer.php"; ?>
 </body>
-<?php include "footer.php"; ?>
 </html>

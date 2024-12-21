@@ -97,6 +97,11 @@
     font-size: 1rem;
     cursor: pointer;
     margin-bottom: 19px;
+    transition: 0.2s ease-in-out;
+    border-radius: 8px;
+}
+.btn-shop-all:hover {
+    background-color: rgb(201, 201, 201);
 }
 
 .product-container {
@@ -116,15 +121,15 @@
     flex-direction: column;
     justify-content: flex-end; 
     font-size: 1rem;
-    border: 2px solid black;
+    border: 2px green;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
-    color: white;
-    overflow: hidden; 
+    color: black;
+    overflow: hidden;
 }
 
 .product-item p {
@@ -132,7 +137,7 @@
     padding: 10px;
     width: 100%;
     font-size: 16px;
-    color: #fff; 
+    color: #fff;
     text-align: center;
 }
 

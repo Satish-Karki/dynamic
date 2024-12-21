@@ -4,21 +4,21 @@
         <div class="footer-column">
             <h3>Contact Us</h3>
             <p>Contact no: <span class="bold">123-456-7890</span></p>
-            <p>Email: <span class="bold">canonappliances@email.com</span></p>
+            <p>Email: <span class="bold">canonappliances@gmail.com</span></p>
         </div>
         <div class="footer-column">
             <h3>Shop</h3>
-            <a href="shop.html">Top Freezer Refrigerator</a>
-            <a href="shop.html">Door-in-Door</a>
-            <a href="shop.html">Side by Side Refrigerator</a>
-            <a href="shop.html">Insta Door-in-Door</a>
+            <a href="shop.php">Top Freezer Refrigerator</a>
+            <a href="shop.php">Door-in-Door</a>
+            <a href="shop.php">Side by Side Refrigerator</a>
+            <a href="shop.php">Insta Door-in-Door</a>
         </div>
         <div class="footer-column">
             <h3>About</h3>
-            <a href="about.html">About Us</a>
-            <a href="about.html">Responsibility</a>
-            <a href="about.html">Technology & Innovation</a>
-            <a href="about.html">Explore our stories</a>
+            <a href="about.php">About Us</a>
+            <a href="about.php">Responsibility</a>
+            <a href="about.php">Technology & Innovation</a>
+            <a href="about.php">Explore our stories</a>
         </div>
         <div class="footer-column">
             <h3>Social</h3>

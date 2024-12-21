@@ -14,21 +14,20 @@
     </section>
     <section class="highlight">
         <div class="highlight-content">
-            <h2>Keep Fresher, Cool, Faster Save More</h2>
-            <p>Our Inverter Linear Compressor Keeps food at the peak of freshness with less energy consumed.</p>
-            <button class="btn-buy-now shop-button">BUY NOW</button>
+            <h2>Freshness That Lasts, Energy That Saves</h2>
+            <p>Experience peak freshness every day with our cutting-edge Inverter Linear Compressor Technology. Keep your food fresher for longer, stay cool, and save more on energy costs.</p>
+            <button class="btn-buy-now" id="shop"> BUY NOW</button>
         </div>
     </section>
     <section class="product-category" id="product-category">
         <h2>Our Top Rated</h2>
         <p>Discover our latest arrivals<br> innovative refrigerators with advanced features,<br> elegant designs, and unmatched performance, crafted to elevate your kitchen experience.</p>
-        <button class="btn-shop-all shop-button">Shop All</button>
-
-        <div class="product-container">
-            <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');"> Freezer Refrigerator</div>
-            <div class="product-item">Door-in-Door</div>
-            <div id="down" class="product-item">Side by Side Refrigerator</div>
-            <div class="product-item">InstaView Door-in-Door</div>
+        <button class="btn-shop-all" id="shopall"> Shop All</button>
+        <div class="product-container" id="shopcategory">
+            <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');">Top Freezer Refrigerator</div>
+            <div class="product-item" style="background-image:url('./pic/door\ in\ door.jpg'); ">Door-in-Door</div>
+            <div id="down" class="product-item" style="background-image:url('./pic/side\ by\ side.jpg'); ">Side by Side Refrigerator</div>
+            <div class="product-item" style="background-image:url('./pic/instaview.jpg'); ">InstaView Door-in-Door</div>
         </div>
     </section>
     <script src="home.js"></script>

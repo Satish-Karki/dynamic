@@ -1,7 +1,6 @@
    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
                 body {
                     background-color: #F5F6FA;
-                   
                 }
 
                 .contents {
@@ -25,13 +24,11 @@
                     display: flex;
                     flex-direction: column;
                     text-align: left;
-                
                 }
                 input[type='text'],
                 input[type='email'],
                 input[type='password'],select{
                     width: 100%;
-                
                     padding: 10px;
                     margin: 8px 0;
                     border: 1px solid #ccc;
@@ -71,7 +68,6 @@
 
                 .others {
                     display: flex;
-                  
                     align-items: center;
                     justify-content:center;
                 }

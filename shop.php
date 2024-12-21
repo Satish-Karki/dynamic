@@ -104,12 +104,12 @@
     $sql = "SELECT ProductID, Name, Category, Features, Capacity, Price, VendorID FROM products";
     $res = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($res)): ?>
-      
+    
         <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>" class="product-link">
             <div class="product-card" 
-                 data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
-                 data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
-                 data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>-more">
+                data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
+                data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
+                data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>-more">
                  
                 <img src="./pic/674l.jpg" alt="674L Side by Side Fridge with InstaView Door-in-Door™ in Matt Black">
                 <h3><?php echo htmlspecialchars($row['Name']); ?></h3>

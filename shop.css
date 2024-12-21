@@ -75,13 +75,14 @@ a{
     margin-bottom: 10px;
 }
 
-.product-card button {
+.add-to-cart {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
+
 @media (max-width: 1024px) {
     .filters {
         flex-basis: 100%;

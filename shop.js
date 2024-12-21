@@ -41,3 +41,22 @@
             }
         });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+       
+        const scrollPosition = new URLSearchParams(window.location.search).get("scroll");
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition));
+        }
+
+        
+        document.querySelectorAll("a.add-to-cart").forEach(link => {
+            link.addEventListener("click", (e) => {
+                const yOffset = window.scrollY;
+                const href = new URL(link.href);
+                href.searchParams.set("scroll", yOffset);
+                link.href = href.toString();
+            });
+        });
+    });
+

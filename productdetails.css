@@ -109,7 +109,9 @@
    background-color: #fff;
    color:black;
 }
-
+a{
+    text-decoration: none;
+}
 .tabs {
     display: flex;
     gap: 20px;

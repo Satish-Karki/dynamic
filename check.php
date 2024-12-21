@@ -20,13 +20,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['error_msg'] = "";
             $_SESSION['user_type'] = $row['UserType'];
 
-            if ($_SESSION['user_type'] == "Vendor") {
-                header('location:dashboard.php');
-                exit();
-            } else {
-                header('location:customerdashboard.php');
-                exit();
-            }
+           header("location:home.php");
         } else {
             $_SESSION['error_msg'] = "Invalid email or password.";
             header("Location: login.php");

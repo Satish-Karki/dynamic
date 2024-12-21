@@ -11,26 +11,24 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navbar-left">
-            <a href="home.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="#">Support</a>
-            <a href="about.html">About</a>
-        </div>
-        <div class="navbar-center">
-            <input type="text" placeholder="Search">
-        </div>
-        <div class="navbar-right">
 
-            <a href="cart.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
-            <a href="dashboard.html" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
-        </div>
-    </div>
+   
     <div class="contents">
         <div class="order-details">
-            <h1>Order ID: 3354654654526</h1>
+            <h1>Orders: </h1>
+
+            <div class="filter">
+                <label for="filter-range">Filter By Date: </label>
+                <select id="filter-range" onchange="applyFilter()">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <input type="date" id="custom-start-date" class="custom-date" style="display:none;" placeholder="Start Date">
+                <input type="date" id="custom-end-date" class="custom-date" style="display:none;" placeholder="End Date">
+            </div>
+
             <div class="status">
                 <div class="step completed">
                     <div class="icon"><i class="fas fa-check"></i></div>
@@ -49,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="order-items">
+            <div class="order-items" id="order-items">
                 <div class="item">
                     <div class="image">
                         <img src="https://via.placeholder.com/60" alt="Item Image">
@@ -71,6 +69,17 @@
                     <div>Rs 300,000</div>
                 </div>
             </div>
+
+            <p>Total Orders: <span id="total-orders">4</span></p>
+            <p>Pending orders: <span id="pending-orders">2</span></p>
+
+            <div class="transactions">
+                <h2>Transactions History:</h2>
+                <div id="transaction-history">
+                    <p>22 DEC 2023 - Rs. 220,000</p>
+                </div>
+            </div>
+
             <div class="order-summary">
                 <div class="column">
                     <h3>Payment</h3>
@@ -117,9 +126,11 @@
             </div>
         </div>
     </div>
-    </div>
+
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="customerdashboard.js"></script>
 </body>
+
 <footer>
     <div class="footer">
         <div class="logo"><img src="images/logo.png"></div>
@@ -146,11 +157,12 @@
             <h3>Social</h3>
             <div class="social-icons">
                 <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="images/instagram.png"alt="Instagram"></a>
+                <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
                 <a href="#"><img src="images/x.png" alt="Twitter"></a>
                 <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
             </div>
         </div>
     </div>
 </footer>
+
 </html>

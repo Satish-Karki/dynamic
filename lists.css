@@ -1,17 +1,10 @@
-    * {
-            box-sizing: border-box;
-        }
+
 
         body {
             background-color: #F5F6FA;
-            font-family: 'Nunito Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x:hidden;
+            
         }
-     
-
-       
+    
         .dashboard
         {
             display:flex;

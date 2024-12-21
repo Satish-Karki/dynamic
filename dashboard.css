@@ -1,13 +1,10 @@
-   * {
-            box-sizing: border-box;
-        }
+
 
         body {
             background-color:   #F5F6FA;
-            font-family: 'Nunito Sans', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x:hidden;
+            
         }
         .dashboard
         {
@@ -151,58 +148,4 @@
             background-color:white;
             padding:20px;
             border-radius:15px;
-        }
-        .footer {
-            margin-top: 30px;
-            justify-content:right;
-            display: flex;
-            flex-wrap: nowrap;
-            padding: 40px 80px;
-            background-color: #fff;
-            color: black;
-            font-size: 16px;
-            gap: 20px;
-            overflow: hidden;
-            box-sizing: border-box; 
-
-
-        }
-
-        .footer-column {
-            display: flex;
-            flex-direction: column;
-            gap:20px;
-            white-space: nowrap;
-
-        }
-
-        .footer-column a {
-            color: gray;
-            text-decoration: none;
-            font-size: 14px;
-            white-space: nowrap;
-            margin: 0; 
-            padding: 0;
-            
-        }
-
-        .footer-column a:hover {
-            color: black;
-        }
-
-        .footer-column p {
-            margin: 0;
-            color: black;
-            white-space: nowrap;
-        }
-
-        .footer-column .bold {
-            font-weight: bold;
-        }
-        .social-icons {
-            display: flex;
-        }
-        .social-icons img {
-                width: 24px;
-                height: 24px;
         }

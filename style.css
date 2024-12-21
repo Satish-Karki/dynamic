@@ -97,6 +97,11 @@
     font-size: 1rem;
     cursor: pointer;
     margin-bottom: 19px;
+    transition: 0.2s ease-in-out;
+    border-radius: 8px;
+}
+.btn-shop-all:hover {
+    background-color: rgb(201, 201, 201);
 }
 
 .product-container {

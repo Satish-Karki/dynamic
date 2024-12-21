@@ -22,7 +22,7 @@
     <section class="product-category" id="product-category">
         <h2>Our Top Rated</h2>
         <p>Discover our latest arrivals<br> innovative refrigerators with advanced features,<br> elegant designs, and unmatched performance, crafted to elevate your kitchen experience.</p>
-        <button class="btn-shop-all" id="shop">Shop All</button>
+        <button class="btn-shop-all" id="shop"> Shop All</button>
         <div class="product-container">
             <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');">Top Freezer Refrigerator</div>
             <div class="product-item" style="background-image:url('./pic/door\ in\ door.jpg'); ">Door-in-Door</div>

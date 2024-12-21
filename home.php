@@ -16,13 +16,14 @@
         <div class="highlight-content">
             <h2>Keep Fresher, Cool, Faster Save More</h2>
             <p>Our Inverter Linear Compressor Keeps food at the peak of freshness with less energy consumed.</p>
-            <button class="btn-buy-now" id="shop"> BUY NOW</button>
+            <button class="btn-buy-now shop-button">BUY NOW</button>
         </div>
     </section>
     <section class="product-category" id="product-category">
         <h2>Our Top Rated</h2>
         <p>Discover our latest arrivals<br> innovative refrigerators with advanced features,<br> elegant designs, and unmatched performance, crafted to elevate your kitchen experience.</p>
-        <button class="btn-shop-all" id="shop">Shop All</button>
+        <button class="btn-shop-all shop-button">Shop All</button>
+
         <div class="product-container">
             <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');"> Freezer Refrigerator</div>
             <div class="product-item">Door-in-Door</div>

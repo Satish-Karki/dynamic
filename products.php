@@ -12,9 +12,11 @@
 </html>
 <body>
    <?php  
-        if(!isset($_SESSION['user_login'])&&$_SESSION['usertype']!='Vendor'){
-                    header("location:login.php");
-                }
+        session_start();
+        if (!isset($_SESSION['user_login']) && $_SESSION['user_type'] != 'Vendor') {
+            header("location:login.php");
+            exit(); 
+        }
                 include "navbar.php";?>
     <div class="all-container">
         <div class="options">
@@ -41,7 +43,8 @@
                 <label> Name </label>
                 <input type="text"  name="name" value="" requried>
                 <label> Description </label>
-                <input type="textarea" rowspan="30" columnspan="30" name="description" value="" requried>
+                <textarea name="description" rows="5" cols="50" placeholder="Enter description here" required></textarea>
+
                 <div class="nitems">
                     <div class="low">
                         <label>   Price </label>
@@ -57,9 +60,9 @@
                         <label>Category</label>
                         <select  name="options" >
                             <option value="Top Freeze Refrigerator">Top Freeze Refrigerator</option>
-                            <option value="Door-in-Door">Door-in-Door</option>
+                            <option value="Door in Door">Door-in-Door</option>
                             <option value="Side by Side Refrigerator">Side by Side Refrigerator</option>
-                            <option value="InstaView Door-in-Door">InstaView Door-in-Door</option>
+                            <option value="InstaView Door in Door">InstaView Door-in-Door</option>
                         </select>
                     </div>
                     <div class="low">

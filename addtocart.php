@@ -19,8 +19,8 @@ $stmt = $conn->prepare("INSERT INTO carts (CustomerID, ProductID, Quantity) VALU
 $stmt->bind_param("ii", $id, $productid);
 
 if ($stmt->execute()) {
-   $_SESSION['msg']= "Added to cart successfully.";
-   header("location:shop.php");
+    $_SESSION['msg']= "Added to cart successfully.";
+    header("location:shop.php");
 } else {
     $_SESSION['msg']= "Added to cart successfully." . $stmt->error;
 }

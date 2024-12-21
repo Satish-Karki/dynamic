@@ -24,10 +24,10 @@
         <p>Discover our latest arrivals<br> innovative refrigerators with advanced features,<br> elegant designs, and unmatched performance, crafted to elevate your kitchen experience.</p>
         <button class="btn-shop-all" id="shop">Shop All</button>
         <div class="product-container">
-            <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');"> Freezer Refrigerator</div>
-            <div class="product-item">Door-in-Door</div>
-            <div id="down" class="product-item">Side by Side Refrigerator</div>
-            <div class="product-item">InstaView Door-in-Door</div>
+            <div id="down" class="product-item" style="background-image: url('./pic/top door.jpg');">Top Freezer Refrigerator</div>
+            <div class="product-item" style="background-image:url('./pic/door\ in\ door.jpg'); ">Door-in-Door</div>
+            <div id="down" class="product-item" style="background-image:url('./pic/side\ by\ side.jpg'); ">Side by Side Refrigerator</div>
+            <div class="product-item" style="background-image:url('./pic/instaview.jpg'); ">InstaView Door-in-Door</div>
         </div>
     </section>
     <script src="home.js"></script>

@@ -1,4 +1,4 @@
 
     document.getElementById('shop').addEventListener('click', function () {
-        window.location.href = 'shop.php'; 
+        window.location.href = 'shop.php';
     });

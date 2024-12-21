@@ -7,15 +7,48 @@
     <link rel="stylesheet" href="customerdashboard.css">
     <link rel="stylesheet" href="global.css">
 <body>
-    <?php include "navbar.php";?>
-<body>
-    <div class="contents">
-        <div class="order-details">
-            <h1>Orders: </h1>
+<?php 
+        session_start();
+        include "navbar.php";
+        include "databaseconn.php";
 
-            <div class="filter">
+        $id = $_SESSION['user_login'];
+        $filter = $_GET['filter'] ?? 'all';
+        $start_date = $_GET['start_date'] ?? null;
+        $end_date = $_GET['end_date'] ?? null;
+
+        $queryCondition = "WHERE CustomerID='$id'";
+        if ($filter === 'daily') {
+            $queryCondition .= " AND DATE(OrderedAt) = CURDATE()";
+        } elseif ($filter === 'weekly') {
+            $queryCondition .= " AND YEARWEEK(OrderedAt, 1) = YEARWEEK(CURDATE(), 1)";
+        } elseif ($filter === 'monthly') {
+            $queryCondition .= " AND MONTH(OrderedAt) = MONTH(CURDATE()) AND YEAR(OrderedAt) = YEAR(CURDATE())";
+        } elseif ($filter === 'custom' && $start_date && $end_date) {
+            $queryCondition .= " AND DATE(OrderedAt) BETWEEN '$start_date' AND '$end_date'";
+        }
+
+        $orderQuery = "SELECT * FROM orders $queryCondition";
+        $orderResult = mysqli_query($conn, $orderQuery);
+
+        $totalQuery = "SELECT COUNT(*) as total_orders FROM orders $queryCondition";
+        $pendingQuery = "SELECT COUNT(*) as pending_orders FROM orders $queryCondition AND OrderStatus='Pending'";
+
+        $totalResult = mysqli_fetch_assoc(mysqli_query($conn, $totalQuery));
+        $pendingResult = mysqli_fetch_assoc(mysqli_query($conn, $pendingQuery));
+
+        $totalOrders = $totalResult['total_orders'];
+        $pendingOrders = $pendingResult['pending_orders'];
+    ?>
+
+    <div class="contents">
+    <div class="order-details">
+    <h1>Orders: </h1>
+
+    <div class="filter">
                 <label for="filter-range">Filter By Date: </label>
                 <select id="filter-range" onchange="applyFilter()">
+                    <option value="all">All</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
                     <option value="monthly">Monthly</option>
@@ -25,49 +58,64 @@
                 <input type="date" id="custom-end-date" class="custom-date" style="display:none;" placeholder="End Date">
             </div>
 
-            <div class="status">
-                <div class="step completed">
-                    <div class="icon"><i class="fas fa-check"></i></div>
-                    <div>Order Confirmed</div>
-                    <div>Wed, 21st Nov</div>
-                </div>
-                <div class="step completed">
-                    <div class="icon"><i class="fas fa-shipping-fast"></i></div>
-                    <div>Shipped</div>
-                    <div>Wed, 21st Nov</div>
-                </div>
-                <div class="step">
-                    <div class="icon"><i class="fas fa-box"></i></div>
-                    <div>Delivered</div>
-                    <div>Expected by, 26th Nov</div>
-                </div>
-            </div>
+    <div class="status">
+        <div class="step completed">
+            <div class="icon"><i class="fas fa-check"></i></div>
+            <div>Order Confirmed</div>
+            <div>Wed, 21st Nov</div>
+        </div>
+        <div class="step completed">
+            <div class="icon"><i class="fas fa-shipping-fast"></i></div>
+            <div>Shipped</div>
+            <div>Wed, 21st Nov</div>
+        </div>
+        <div class="step">
+            <div class="icon"><i class="fas fa-box"></i></div>
+            <div>Delivered</div>
+            <div>Expected by, 26th Nov</div>
+        </div>
+    </div>
 
-            <div class="order-items" id="order-items">
-                <div class="item">
-                    <div class="image">
-                        <img src="https://via.placeholder.com/60" alt="Item Image">
-                    </div>
-                    <div class="description">
-                        <div>Whirlpool Icemagic 185 Litres Single Door Refrigerator (200 IMPC Prm Sapphire Linnea)</div>
-                        <div>Vendor: Cannon Appliance</div>
-                    </div>
-                    <div>Rs 30,000</div>
-                </div>
-                <div class="item">
-                    <div class="image">
-                        <img src="https://via.placeholder.com/60" alt="Item Image">
-                    </div>
-                    <div class="description">
-                        <div>SAMSUNG RS72R5011SL - 700 Litres Inverter Side By Side Refrigerator With SpaceMax Technology</div>
-                        <div>Vendor: Cannon Appliance</div>
-                    </div>
-                    <div>Rs 300,000</div>
-                </div>
-            </div>
+    <div class="order-items" id="order-items">
+        <?php 
+         
 
-            <p>Total Orders: <span id="total-orders">4</span></p>
-            <p>Pending orders: <span id="pending-orders">2</span></p>
+          
+            $sql = "
+            SELECT 
+                orders.OrderID, 
+                orders.CustomerID,
+                orders.ProductName, 
+                orders.Quantity, 
+                orders.TotalAmount, 
+                orders.OrderStatus,  
+                orders.OrderedAt,
+                users.Name AS VendorName
+            FROM orders
+            INNER JOIN users ON orders.VendorID = users.UserID
+            WHERE orders.CustomerID = $id
+        ";
+            $res=mysqli_query($conn,$sql);
+
+            while($row=mysqli_fetch_assoc($res)):
+        ?>
+        <div class="item">
+            <div class="image">
+                <img src="pic" alt="Item Image">
+            </div>
+            <div class="description">
+                <div><?php echo htmlspecialchars($row['ProductName']);?></div>
+                <div>Vendor: <?php echo htmlspecialchars($row['VendorName']);?></div>
+            </div>
+            <div>Total: Rs. <?php echo htmlspecialchars($row['TotalAmount']);?></div>
+        </div>
+        <?php endwhile; ?>
+    </div>
+
+  
+    <p>Total Orders: <span id="total-orders"><?php echo $totalOrders; ?></span></p>
+    <p>Pending Orders: <span id="pending-orders"><?php echo $pendingOrders; ?></span></p>
+
 
             <div class="transactions">
                 <h2>Transactions History:</h2>
@@ -126,5 +174,5 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="customerdashboard.js"></script>
 </body>
-</html>
 <?php include "footer.php" ?>
+</html>

@@ -54,7 +54,8 @@ $row = mysqli_fetch_assoc($res);
                 <div class="actions">
                     <input type="number" value="1" class="quantity">
                     <a href="checkout.php?id=<?php echo $row['ProductID']; ?>" class="btn buy-now">Buy Now</a>
-                    <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to-cart">Add to Cart</a>
+                    <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
+                    <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">Wishlist</a>
                 </div>
             </div>
         </div>

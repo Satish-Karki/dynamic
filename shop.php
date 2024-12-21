@@ -114,7 +114,8 @@
                 <img src="./pic/674l.jpg" alt="674L Side by Side Fridge with InstaView Door-in-Door™ in Matt Black">
                 <h3><?php echo htmlspecialchars($row['Name']); ?></h3>
                 <p>Price: $<?php echo htmlspecialchars($row['Price']); ?></p>
-                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to-cart">Add to Cart</a>
+                <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">Wishlist</a>
+                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">Add to Cart</a>
             </div>
         </a>
     <?php endwhile; ?>

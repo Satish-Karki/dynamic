@@ -50,7 +50,7 @@
         }
 
         
-        document.querySelectorAll("a.add-to-cart").forEach(link => {
+        document.querySelectorAll("a.add-to").forEach(link => {
             link.addEventListener("click", (e) => {
                 const yOffset = window.scrollY;
                 const href = new URL(link.href);
@@ -58,5 +58,16 @@
                 link.href = href.toString();
             });
         });
-    });
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            alert(decodeURIComponent(message));
+    
+            const newUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState(null, null, newUrl);
+        } 
+        });
+    
+    
 
+  

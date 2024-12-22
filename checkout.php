@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_login'])) {
 include "databaseconn.php";
 
 $productID = isset($_GET['id']) ? intval($_GET['id']) : null;
+$fromCart = isset($_GET['from']) && $_GET['from'] === 'cart';
 $product = null;
 
 if ($productID) {
@@ -19,14 +20,14 @@ if ($productID) {
     $product = $stmt->get_result()->fetch_assoc();
     $stmt->close();
 
-   
     if (!$product) {
         header("Location: home.php");
         exit();
     }
 }
 
-if (!$productID) {
+
+if (!$productID && !$fromCart) {
     header("Location: home.php");
     exit();
 }
@@ -50,7 +51,10 @@ $conn->close();
         <div class="checkout-form">
             <h1>Checkout</h1>
             <form action="place_order.php" method="POST">
-                <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($productID ?? ''); ?>">
+                
+                <?php if ($productID): ?>
+                    <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($productID); ?>">
+                <?php endif; ?>
                 <div class="section">
                     <h2>Address & Payment</h2>
                     <label for="Name">Name</label>

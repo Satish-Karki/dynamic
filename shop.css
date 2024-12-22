@@ -48,9 +48,9 @@ a{
     flex-basis: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
-    align-items: start;
+    
+ 
+   
 }
 
 .product-card {
@@ -89,10 +89,3 @@ a{
     cursor: pointer;
 }
 
-
-@media (max-width: 1024px) {
-    .filters {
-        flex-basis: 100%;
-        margin-bottom: 20px; 
-    }
-}

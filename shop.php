@@ -99,27 +99,33 @@
         </div>
 
         <div class="product-grid">
-    <?php 
-    include "databaseconn.php"; 
-    $sql = "SELECT ProductID, Name, Category, Features, Capacity, Price, VendorID FROM products";
-    $res = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_assoc($res)): ?>
-    
-        <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>" class="product-link">
-            <div class="product-card" 
-                data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
-                data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
-                data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>-more">
-                 
-                <img src="./pic/674l.jpg" alt="674L Side by Side Fridge with InstaView Door-in-Door™ in Matt Black">
-                <h3><?php echo htmlspecialchars($row['Name']); ?></h3>
-                <p>Price: $<?php echo htmlspecialchars($row['Price']); ?></p>
-                <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">Wishlist</a>
-                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">Add to Cart</a>
-            </div>
-        </a>
-    <?php endwhile; ?>
-</div>
+            <?php 
+            include "databaseconn.php"; 
+            $sql = "SELECT ProductID, Name, Category, Features, Capacity, Price, VendorID FROM products";
+            $res = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($res)):    
+               ?>
+            
+                
+                <div class="product-card" 
+                    data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
+                    data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
+                    data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>-more">
+                    
+                    <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">
+                        <img src="./pic/674l.jpg" alt="674L Side by Side Fridge">
+                    </a>
+                    <h3>
+                        <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">
+                            <?php echo htmlspecialchars($row['Name']); ?>
+                        </a>
+                    </h3>
+                    <p>Price: $<?php echo htmlspecialchars($row['Price']); ?></p>
+                    <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">Wishlist</a>
+                    <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">Add to Cart</a>
+                </div>
+            <?php endwhile; ?>    
+        </div>
 
     </div>
     <script src="shop.js"></script>

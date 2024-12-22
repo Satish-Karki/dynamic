@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const message = urlParams.get('message');
+    if (message) {
+        alert(decodeURIComponent(message));
+
+        urlParams.delete('message');
+
+       
+        const newUrl = window.location.origin;
+    
+       
+        window.history.replaceState(null, null, newUrl);
+    }
     const cartItems = document.querySelectorAll(".cart-item");
     const grandTotalEl = document.getElementById("grand-total");
 
@@ -45,7 +58,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateGrandTotal();
 
-
-   
-
+    
 });

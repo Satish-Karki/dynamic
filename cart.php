@@ -57,13 +57,17 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <p class="cart-item-category">Category: <?php echo htmlspecialchars($row['Category']); ?></p>
                             <a href="remove.php?id=<?php echo $row['CartID']; ?>" class="cart-item-remove">Remove</a>
                         </div>
+                        <div class="unit">
                         <div class="unit-pr">
                             <h3>Unit Price</h3>
                             <p class="cart-item-price">$<?php echo number_format($row['UnitPrice'], 2); ?></p>
                         </div>
                         <div class="cart-item-quantity">
+                            <h3>Quantity</h3>
                             <div class="quantity-container">
+                            
                                 <button class="quantity-button" data-action="decrease">-</button>
+                            
                                 <input type="number" class="quantity-input" value="<?php echo $row['Quantity']; ?>" min="1" readonly>
                                 <button class="quantity-button" data-action="increase">+</button>
                             </div>
@@ -72,7 +76,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <h3>Total Price</h3>
                             <p class="cart-item-total">$<?php echo number_format($row['UnitPrice'] * $row['Quantity'], 2); ?></p>
                         </div>
+                         </div>
                     </div>
+                    
                 <?php endforeach; ?>
             </div>
             <div class="grand-total">

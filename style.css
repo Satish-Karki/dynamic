@@ -17,8 +17,6 @@ html{
     max-width: 80%;
     margin: 0 auto;
 }
-
-
 .highlight {
         background:url('pic/backgroundimage.jpg');
         background-size: cover;
@@ -147,11 +145,6 @@ html{
 
 .product-item:hover {
     transform: scale(1.05);
-}
-
-
-html {
-    scroll-behavior: smooth;
 }
 
 #down{

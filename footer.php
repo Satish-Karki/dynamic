@@ -1,6 +1,6 @@
 <footer>
     <div class="footer">
-        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+        <div class="logo"><img src="pic/logo.png" alt="Logo"></div>
         <div class="footer-column">
             <h3>Contact Us</h3>
             <p>Contact no: <span class="bold">123-456-7890</span></p>

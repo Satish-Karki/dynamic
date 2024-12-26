@@ -66,8 +66,7 @@
             const newUrl = window.location.origin + window.location.pathname;
             window.history.replaceState(null, null, newUrl);
         } 
+        
         });
     
-    
-
-  
+        

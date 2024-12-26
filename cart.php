@@ -10,6 +10,7 @@ if (!isset($_SESSION['user_login'])) {
 
 $customerID = intval($_SESSION['user_login']); 
 
+
 $sql = "
     SELECT 
         carts.CartID, 
@@ -18,7 +19,9 @@ $sql = "
         products.Name AS ProductName,
         users.Name AS VendorName, 
         products.Price AS UnitPrice,
-        products.Category
+        products.Category,
+        products.Stock,
+        products.image1
     FROM carts
     INNER JOIN products ON carts.ProductID = products.ProductID
     INNER JOIN users ON products.VendorID = users.UserID
@@ -50,7 +53,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <div id="cart-items">
                 <?php foreach ($cartItems as $row): ?>
                     <div class="cart-item" data-cart-id="<?php echo $row['CartID']; ?>" data-unit-price="<?php echo $row['UnitPrice']; ?>">
-                        <img src="./pic/top_door.jpg" alt="Product Image">
+                    <img src="<?php echo htmlspecialchars($row['image1']); ?>">
                         <div class="cart-item-details">
                             <h2 class="cart-item-title"><?php echo htmlspecialchars($row['ProductName']); ?></h2>
                             <p class="cart-item-vendor">Vendor: <?php echo htmlspecialchars($row['VendorName']); ?></p>
@@ -64,13 +67,28 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
                         <div class="cart-item-quantity">
                             <h3>Quantity</h3>
+                            
                             <div class="quantity-container">
+                            <form method="POST" action="update_cart.php" class="cart-update-form">
+                                        <input 
+                                            type="hidden" 
+                                            name="cartID" 
+                                            value="<?php echo $row['CartID']; ?>"
+                                        >
+                                        <button class="quantity-button" data-action="decrease" type="submit" name="action" value="decrease">-</button>
+                                        <input 
+                                            type="number" 
+                                            name="quantity" 
+                                            value="<?php echo $row['Quantity']; ?>" 
+                                            class="quantity-input" 
+                                            min="1" 
+                                            max="<?php echo htmlspecialchars($row['Stock']); ?>" 
+                                        >
+                                        <button class="quantity-button" data-action="increase" type="submit" name="action" value="increase">+</button>
+                                    </form>
                             
-                                <button class="quantity-button" data-action="decrease">-</button>
-                            
-                                <input type="number" class="quantity-input" value="<?php echo $row['Quantity']; ?>" min="1" readonly>
-                                <button class="quantity-button" data-action="increase">+</button>
                             </div>
+                           
                         </div>
                         <div class="total-price">
                             <h3>Total Price</h3>

@@ -16,23 +16,22 @@ $scroll = isset($_GET['scroll']) ? intval($_GET['scroll']) : 0;
 
 include "databaseconn.php";
 
-$stmt = $conn->prepare("INSERT INTO carts (CustomerID, ProductID, Quantity) VALUES (?, ?, 1)");
-$stmt->bind_param("ii", $id, $productid);
+$sql = "INSERT INTO carts (CustomerID, ProductID, Quantity) VALUES ($id, $productid, 1)";
 
-if ($stmt->execute()) {
+$res=mysqli_query($conn,$sql);
+if ($res) {
     $message = urlencode("Added to cart successfully.");
     if ($source === 'productdetails') {
         header("location:productdetails.php?id=$productid&message=$message");
+        exit();
     } else {
         header("location:shop.php?scroll=$scroll&message=$message");
     }
     
 } else {
-    $message = urlencode("Failed to add to cart: " . $stmt->error);
+    $message = urlencode("Failed to add to cart: " );
     header("location:shop.php?id=$productid&message=$message");
+    exit();
 }
 
-
-$stmt->close();
-$conn->close();
 ?>

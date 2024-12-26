@@ -1,3 +1,21 @@
+<?php
+include "databaseconn.php";
+
+
+$searchQuery = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
+
+
+$sql = "SELECT ProductID,image1, Name, Category, Features, Capacity, Price, VendorID 
+        FROM products";
+
+if ($searchQuery) {
+    $sql .= " WHERE Name LIKE '%$searchQuery%'"; 
+}
+
+
+$res = mysqli_query($conn, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +26,7 @@
     <link rel="stylesheet" href="global.css">
 </head>
 <body>
-   <?php include "navbar.php"?>
+   <?php include "navbar.php"; ?>
     <div class="container">
         <div class="filters">
             <h2>Filters</h2>
@@ -21,27 +39,27 @@
                         <label for="TopFreezeRefrigerator">Top Freeze Refrigerator</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="SideBySide" name="type" value="side-by-side">
+                        <input type="checkbox" id="SideBySide" name="type" value="Side by Side Refrigerator">
                         <label for="SideBySide">Side by Side Refrigerator</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="OneDoor" name="type" value="one-door">
+                        <input type="checkbox" id="OneDoor" name="type" value="One Door Fridge">
                         <label for="OneDoor">One Door Fridge</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="InstaView" name="type" value="instaview">
+                        <input type="checkbox" id="InstaView" name="type" value="InstaView Door in Door">
                         <label for="InstaView">InstaView™ Door-in-Door®</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="DoorInDoor" name="type" value="door-in-door">
+                        <input type="checkbox" id="DoorInDoor" name="type" value="Door in Door">
                         <label for="DoorInDoor">Door-in-Door®</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="MultiDoor" name="type" value="multi-door">
+                        <input type="checkbox" id="MultiDoor" name="type" value="Multi Door Refrigerator">
                         <label for="MultiDoor">Multi Door Refrigerator</label>
                     </li>
                     <li>
-                        <input type="checkbox" id="DoubleDoor" name="type" value="double-door">
+                        <input type="checkbox" id="DoubleDoor" name="type" value="Double Door Refrigerator">
                         <label for="DoubleDoor">Double Door Refrigerator</label>
                     </li>
                 </ul>
@@ -99,21 +117,18 @@
         </div>
 
         <div class="product-grid">
-            <?php 
-            include "databaseconn.php"; 
-            $sql = "SELECT ProductID, Name, Category, Features, Capacity, Price, VendorID FROM products";
-            $res = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_assoc($res)):    
-               ?>
-            
-                
+            <?php
+           
+            if (mysqli_num_rows($res) > 0):
+                while ($row = mysqli_fetch_assoc($res)):    
+            ?>
                 <div class="product-card" 
                     data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
                     data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
-                    data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>-more">
+                    data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>">
                     
                     <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">
-                        <img src="./pic/674l.jpg" alt="674L Side by Side Fridge">
+                    <img src="<?php echo htmlspecialchars($row['image1']); ?>">
                     </a>
                     <h3>
                         <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">
@@ -121,12 +136,16 @@
                         </a>
                     </h3>
                     <p>Price: $<?php echo htmlspecialchars($row['Price']); ?></p>
-                    <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">Wishlist</a>
                     <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">Add to Cart</a>
+                    <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist"><button>Wishlist</button></a>
                 </div>
-            <?php endwhile; ?>    
+            <?php 
+                endwhile; 
+            else:
+                echo "<p>No product found!.</p>";
+            endif; 
+            ?>
         </div>
-
     </div>
     <script src="shop.js"></script>
 </body>

@@ -2,12 +2,8 @@
 session_start();
 include "databaseconn.php";
 
-if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: shop.php");
-    exit();
-}
 
-$id = mysqli_real_escape_string($conn, $_GET['id']);
+$id =  $_GET['id'];
 $sql = "SELECT * FROM products WHERE productid='$id'";
 $res = mysqli_query($conn, $sql);
 
@@ -32,12 +28,13 @@ $row = mysqli_fetch_assoc($res);
     <main class="main-container">
         <div class="product">
             <div class="image-gallery">
-                <div class="thumbnail selected"><img src="images/samsung700L.png"></div>
-                <div class="thumbnail"><img src="images/thumbnail2.png"></div>
-                <div class="thumbnail"><img src="images/thumbnail3.png"></div>
-                <div class="thumbnail"><img src="images/thumbnail4.png"></div>
+                
+                <div class="thumbnail selected"><img src="<?php echo htmlspecialchars($row['image1']); ?>"></div>
+                <div class="thumbnail"><img src="<?php echo htmlspecialchars($row['image2']); ?>"></div>
+                <div class="thumbnail"><img src="<?php echo htmlspecialchars($row['image3']); ?>"></div>
+                <div class="thumbnail"><img src="<?php echo htmlspecialchars($row['image4']); ?>"></div>
             </div>
-            <div class="main-image"><img src="images/samsung700L.png"></div>
+            <div class="main-image"><img src="<?php echo htmlspecialchars($row['image1']); ?>"></div>
             <div class="details">
                 <p><strong>Availability:</strong> <?php echo htmlspecialchars($row['Stock']); ?> in stock</p>
                 <h1><?php echo htmlspecialchars($row['Name']); ?></h1>
@@ -52,11 +49,20 @@ $row = mysqli_fetch_assoc($res);
                     <span class="current-price"><?php echo htmlspecialchars($row['Price']); ?></span>
                 </p>
                 <div class="actions">
-                    <input type="number" value="1" class="quantity">
-                    <a href="checkout.php?id=<?php echo $row['ProductID']; ?>" class="btn buy-now">Buy Now</a>
-                    <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
-                    <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">Wishlist</a>
-                </div>
+                <label>Quantity</label>
+                <input 
+                    type="number" 
+                    value="1" 
+                    class="quantity" 
+                    min="1" 
+                    max="<?php echo htmlspecialchars($row['Stock']); ?>" 
+                    oninput="checkMax(this)"
+                >
+                <a href="checkout.php?id=<?php echo $row['ProductID']; ?>" class="btn buy-now">Buy Now</a>
+                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
+                <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">Wishlist</a>
+            </div>
+
             </div>
         </div>
         <div class="tabs">
@@ -71,9 +77,37 @@ $row = mysqli_fetch_assoc($res);
             <div class="tab-panel hidden" id="specification">
                 <p>Specifications: <br> Energy Rating: 5 Star <br> Power Consumption: 200W <br> Cooling Technology: SpaceMax™</p>
             </div>
-            <div class="tab-panel hidden" id="reviews">
-                <p>Customer Reviews: <br> 1. Excellent product! - 5/5 <br> 2. Value for money - 4/5</p>
+                <div class="tab-panel hidden" id="reviews">
+                <h2>Reviews</h2>
+                <form action="review.php" method="POST" name="review-box ">
+                    <label for="reviewText">Write your review:</label><br>
+                    <textarea id="reviewText" name="reviewtext" rows="4" cols="50" required></textarea><br><br>
+                    <input type="hidden" name="productid" value="<?php echo $id?>">
+                    <button type="submit" class="btn" name="submit">review</button>
+                </form>
+
+                <h3>Other Reviews:</h3>
+                <div id="reviewList">
+                    <?php
+                
+                        $sql = "SELECT reviews.*, users.Name 
+                        FROM reviews
+                        INNER JOIN users ON reviews.CustomerID = users.UserID
+                        WHERE reviews.ProductID = $id
+                        ORDER BY reviews.ReviewedAt DESC"; 
+                        $result = mysqli_query($conn, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<div class='review'>
+                                <strong>" . htmlspecialchars($row['Name']) . "</strong> 
+                                <span class='review-date'>" . htmlspecialchars($row['ReviewedAt']) . "</span>
+                                <p>" . nl2br(htmlspecialchars($row['ReviewText'])) . "</p>
+                            </div><hr>";
+                    }
+                    ?>
+                </div>
             </div>
+
         </div>
     </main>
     <script src="productdetails.js"></script>

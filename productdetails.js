@@ -36,5 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
        
         window.history.replaceState(null, null, newUrl);
     }
+ 
+    
 });
+function checkMax(input) {
+    const max = parseInt(input.max, 10);
+    const value = parseInt(input.value, 10);
+
+    if (value > max) {
+        input.value = max;
+        alert(`You cannot select more than ${max} items.`);
+    }
+}
 

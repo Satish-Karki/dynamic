@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST['submit'])) {
     include_once "databaseconn.php";
-
+    print_r($_POST['uname']);
     $uname = $_POST['uname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -40,5 +40,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['msg'] = "Couldn't sign up. Something went wrong.";
         header("location:signup.php");
     }
+}
+else{
+    header("location:signup.php");
 }
 ?>

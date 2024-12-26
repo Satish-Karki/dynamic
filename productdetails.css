@@ -29,20 +29,29 @@
     border-color: red;
 }
 .thumbnail img{
-    width: 80px;
-    height: 80px;
+    width: 80px; /* Fixed width */
+    height: 80px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    display: block; /* Ensures the image doesn't add extra inline spacing */
+    margin: 0 auto; /* Center the image inside the card */
 }
 
 .main-image {
     flex: 1;
+    width: 500px;
     height: 500px;
     border-color: 2px solid red;
     border-radius: 5px;
 }
 
 .main-image img{
+    width: 500px;
     height: 500px;
+    object-fit: cover; 
+    display: block; 
+    margin: 0 auto; /* Center the image inside the card */
 }
+
 
 .details {
     flex: 1;

@@ -10,7 +10,7 @@
 <body>
    <?php include "navbar.php";?>
     <div class="contents">
-        <form action="register.php" method="POST" name="signup-box">
+        <form action="register.php" method="POST" id="signup-form" name="signup-box">
             <h2>Sign Up</h2>
             <div class="input-fields">
                 <label for="uname"><b>Username</b></label>

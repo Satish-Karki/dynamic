@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="products.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="global.css">
+   
 
     </head>
 </html>
@@ -17,7 +17,7 @@
             header("location:login.php");
             exit(); 
         }
-                include "navbar.php";?>
+        include "navbar.php";?>
     <div class="all-container">
         <div class="options">
             <h2>DashStack</h2>
@@ -32,14 +32,27 @@
             </div>
         </div>
         <div class="add-container">
-           <form action="add.php" method="POST" name="form">
+           <form action="add.php" method="POST" name="form" enctype="multipart/form-data">
                 <p>Product Information</p>
                 <div class="productimgs">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                </div>
+                <label class="custom-file-upload">
+                    <input type="file" name="image1" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image2" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image3" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image4" accept="image/*">
+                    <span>+</span>
+                </label>
+            </div>
+
                 <label> Name </label>
                 <input type="text"  name="name" value="" requried>
                 <label> Description </label>
@@ -63,6 +76,10 @@
                             <option value="Door in Door">Door-in-Door</option>
                             <option value="Side by Side Refrigerator">Side by Side Refrigerator</option>
                             <option value="InstaView Door in Door">InstaView Door-in-Door</option>
+                            <option value="One Door Fridge">Top Freeze Refrigerator</option>
+                            <option value="Multi Door Refrigerator">Door-in-Door</option>
+                            <option value="Double Door Refrigerator">Side by Side Refrigerator</option>
+                            
                         </select>
                     </div>
                     <div class="low">

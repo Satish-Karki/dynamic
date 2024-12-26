@@ -49,7 +49,7 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     
- 
+    gap:20px;
    
 }
 
@@ -58,12 +58,17 @@ a{
     padding: 20px;
     text-align: center;
    
+   
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fills the box without distortion */
+    display: block; /* Ensures the image doesn't add extra inline spacing */
+    margin: 0 auto; /* Center the image inside the card */
 }
+
 
 .product-card h3 {
     margin-top: 10px;
@@ -82,10 +87,29 @@ a{
     padding: 8px 16px;
     cursor: pointer;
 }
-#add-to-wishlist {
-    border:2px solid red;
-    color: #ff0000;
-    padding: 8px 16px;
+.wishlist-btn {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid orange;
+    border-radius: 5px;
     cursor: pointer;
+    background-image: url('.images/wishlist.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-color 0.3s ease;
+}
+
+.wishlist-btn.saved {
+    background-color: orange; 
+    border: none;
+    background-image: url('.images/wishlist.png'); /* Optional filled icon */
+}
+
+button{
+    width:20%;
+    height:auto;
+    padding: 0;
+    object-fit:scale-down;
 }
 

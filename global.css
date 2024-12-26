@@ -11,6 +11,7 @@ body{
 .navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #000;
     padding:8px 30px;
     width:100%;
@@ -18,8 +19,9 @@ body{
 }
 .navbar-left {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin-left:10%;
+    align-items: center;
 }
 .navbar-left a {
     color: white;
@@ -31,23 +33,63 @@ body{
     color: #4880FF;
     transform: scale(1.1);
 }
-
 .navbar-center {
-    display: flex;
-    flex-grow: 1;
-    margin-left:2%;
-}
-.navbar-center input {
-    width: 300px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #333;
-    color: white;
-}
+    position: relative; 
+     width:300px;
+     color:white;
+   
+  }
+  
+  .navbar-center #search-bar {
+    width: 100%; 
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #000;
+    outline: none;
+    color:white;
+  }
+  
+  .search-results {
+    position: absolute; 
+    top: 100%;
+    left: 0;
+    color:white;
+    width: 100%; 
+    background:#000;
+  
+
+    z-index: 1000; 
+    max-height: 300px;
+    overflow-y: auto; 
+    border-radius: 5px; 
+    padding: 0; 
+  }
+  
+  .search-results a {
+    display: flex; 
+    align-items: center; 
+    padding: 10px;
+    text-decoration: none; 
+    color:white;
+    font-size: 14px;
+  }
+  
+  .search-results a:hover {
+    background-color: #424242; 
+  }
+  
+  .search-results img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 5px; 
+  }
+  
 .navbar-right {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 .navbar-right img {
     width: 24px;
@@ -59,7 +101,7 @@ body{
   transform: scale(1.2);
 
 }
-/* footer css*/
+
 .footer {
     display: flex;
     align-items: flex-start;

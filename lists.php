@@ -51,7 +51,7 @@
             <tr>
             <td><?php echo $row['Name'];?></td>
             <td><?php echo $row['Category'];?></td>
-            <td><?php echo $row['Description'];?></td>
+            <td><?php echo $row['Stock'];?></td>
             <td><?php echo $row['Price'];?></td>
             <td><?php echo $row['Stock'];?></td>
             <td>

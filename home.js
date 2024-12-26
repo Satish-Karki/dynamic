@@ -8,4 +8,3 @@
     document.getElementById('shopcategory').addEventListener('click', function () {
         window.location.href = 'shop.php';
     });
-

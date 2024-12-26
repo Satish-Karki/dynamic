@@ -23,7 +23,7 @@
         <div class="footer-column">
             <h3>Social</h3>
             <div class="social-icons">
-                <!-- Font Awesome Icons for social media -->
+               
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>

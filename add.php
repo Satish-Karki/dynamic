@@ -49,6 +49,7 @@ if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $category = $_POST['options'];
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $price=$_POST['price'];
     $stock = $_POST['stock'];
     $capacity = $_POST['capacity'] . 'L';
     $id = $_SESSION['user_login'];

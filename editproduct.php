@@ -21,6 +21,8 @@
     <meta charset="UTF-8">
     <title>Canon</title>
     <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="global.css">
+
     </head>
 </html>
 <body>

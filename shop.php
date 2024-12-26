@@ -24,6 +24,7 @@
         <title>Product Listing</title>
         <link rel="stylesheet" href="shop.css">
         <link rel="stylesheet" href="global.css">
+
     </head>
     <body>
     <?php include "navbar.php"; ?>
@@ -118,11 +119,10 @@
 
             <div class="product-grid">
                 <?php
-            
                 if (mysqli_num_rows($res) > 0):
-                    while ($row = mysqli_fetch_assoc($res)):    
+                    while ($row = mysqli_fetch_assoc($res)):
                 ?>
-                    <div class="product-card" 
+                    <div class="product-card"
                         data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
                         data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
                         data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>">
@@ -133,20 +133,26 @@
                         <h3>
                             <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">
                                 <?php echo htmlspecialchars($row['Name']); ?>
-                                
                             </a>
                         </h3>
-                        <p>Price: Rs. <?php echo htmlspecialchars($row['Price']); ?></p>
-                        <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">Add to Cart</a>
-                        <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist"><button>Wishlist</button></a>
+                        <div class="price-cart">
+                            <p>Rs. <?php echo htmlspecialchars($row['Price']); ?></p>
+                            <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-cart">
+                            <img src="pic/anothercart.png" alt="Cart" class="cart-icon">
+                        </a>
+                        </div>
+                        <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">
+                            <button>Wishlist</button>
+                        </a>
                     </div>
-                <?php 
-                    endwhile; 
+                <?php
+                    endwhile;
                 else:
                     echo "<p>No product found!.</p>";
-                endif; 
+                endif;
                 ?>
             </div>
+
         </div>
         <script src="shop.js"></script>
     </body>

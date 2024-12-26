@@ -50,40 +50,67 @@ a{
     grid-template-columns: repeat(3, 1fr);
     
     gap:20px;
-   
+
 }
 
 .product-card {
     border: 1px solid #e0e0e0;
-    padding: 20px;
-    text-align: center;
-   
-   
+    background: #fff;
+    padding: 30px;
+    border-radius: 0;
 }
 
 .product-card img {
-    width: 150px; /* Fixed width */
-    height: 150px; /* Fixed height */
-    object-fit: cover; /* Ensures the image fills the box without distortion */
-    display: block; /* Ensures the image doesn't add extra inline spacing */
-    margin: 0 auto; /* Center the image inside the card */
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin: 0 auto 20px;
 }
 
-
 .product-card h3 {
-    margin-top: 10px;
     font-size: 16px;
+    margin: 0 0 15px;
+    line-height: 1.4;
+    min-height: 44px;
 }
 
 .product-card p {
-    font-weight: bold;
     margin-bottom: 10px;
+    color: #DD3335;
+}
+.price-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.price-cart p {
+    font-size: 18px;
+    margin: 0;
+    color: #DD3335;
+}
+
+.price-cart a {
+    text-decoration: none;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+.price-cart img{
+        width: 32px;
+        height: 32px;
+}
+.cart-icon{
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.price-cart a:hover .cart-icon {
+    transform: scale(1.2); /* Slight zoom on hover */
 }
 
 #add-to-cart {
-    background-color: #007bff;
-    color: #fff;
-    border:2px solid #007bff;
     padding: 8px 16px;
     cursor: pointer;
 }
@@ -94,16 +121,16 @@ a{
     border: 2px solid orange;
     border-radius: 5px;
     cursor: pointer;
-    background-image: url('.images/wishlist.png');
+    background-image: url('images/wishlist.png'); /* Corrected path */
     background-size: cover;
     background-repeat: no-repeat;
     transition: background-color 0.3s ease;
 }
 
 .wishlist-btn.saved {
-    background-color: orange; 
+    background-color: orange;
     border: none;
-    background-image: url('.images/wishlist.png'); /* Optional filled icon */
+    background-image: url('images/wishlist.png'); /* Optional filled icon */
 }
 
 button{

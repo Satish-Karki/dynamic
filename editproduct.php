@@ -39,17 +39,29 @@
             </div>
         </div>
         <div class="add-container">
-           <form action="update.php" method="POST" name="form">
+           <form action="update.php" method="POST" name="form" enctype="multipart/form-data">
                 <p>Edit Product Information</p>
                 <div class="productimgs">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                    <img src="./pic/top door.jpg">
-                </div>
+                <label class="custom-file-upload">
+                    <input type="file" name="image1" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image2" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image3" accept="image/*">
+                    <span>+</span>
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" name="image4" accept="image/*">
+                    <span>+</span>
+                </label>
+            </div>
                 <input type="hidden" value=<?php echo $id?> name="id">
                 <label> Name </label>
-                <input type="text"  name="name" value="<?php echo $name; ?>" disabled>
+                <input type="text"  name="name" value="<?php echo $name; ?>" >
                 <label> Description </label>
                 <input type="textarea" rowspan="30" columnspan="30" name="description" value="<?php echo $description; ?>" >
                 <div class="nitems">

@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="add-container">
-           <form action="update.php" method="POST" name="form">
+           <form action="update.php" method="POST" name="form" enctype="multipart/form-data">
                 <p>Edit Product Information</p>
                 <div class="productimgs">
                 <label class="custom-file-upload">

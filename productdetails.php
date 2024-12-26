@@ -46,7 +46,7 @@ $row = mysqli_fetch_assoc($res);
                     <li>Smart Inverter Compressor™</li>
                 </ul>
                 <p class="price">
-                    <span class="current-price"><?php echo htmlspecialchars($row['Price']); ?></span>
+                    <span class="current-price">Rs. <?php echo htmlspecialchars($row['Price']); ?></span>
                 </p>
                 <div class="actions">
                 <label>Quantity</label>
@@ -83,7 +83,7 @@ $row = mysqli_fetch_assoc($res);
                     <label for="reviewText">Write your review:</label><br>
                     <textarea id="reviewText" name="reviewtext" rows="4" cols="50" required></textarea><br><br>
                     <input type="hidden" name="productid" value="<?php echo $id?>">
-                    <button type="submit" class="btn" name="submit">review</button>
+                    <button type="submit" class="btn" name="submit"> Submit Review</button>
                 </form>
 
                 <h3>Other Reviews:</h3>

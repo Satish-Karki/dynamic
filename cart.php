@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <div class="unit">
                         <div class="unit-pr">
                             <h3>Unit Price</h3>
-                            <p class="cart-item-price">$<?php echo number_format($row['UnitPrice'], 2); ?></p>
+                            <p class="cart-item-price">Rs.<?php echo number_format($row['UnitPrice'], 2); ?></p>
                         </div>
                         <div class="cart-item-quantity">
                             <h3>Quantity</h3>
@@ -92,7 +92,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
                         <div class="total-price">
                             <h3>Total Price</h3>
-                            <p class="cart-item-total">$<?php echo number_format($row['UnitPrice'] * $row['Quantity'], 2); ?></p>
+                            <p class="cart-item-total">Rs.<?php echo number_format($row['UnitPrice'] * $row['Quantity'], 2); ?></p>
                         </div>
                          </div>
                     </div>
@@ -100,7 +100,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <?php endforeach; ?>
             </div>
             <div class="grand-total">
-                <h2>Total: $<span id="grand-total">0.00</span></h2>
+                <h2>Total: Rs.<span id="grand-total">0.00</span></h2>
             </div>
         <?php else: ?>
             <p>Your cart is empty. <a href="shop.php">Start shopping now!</a></p>

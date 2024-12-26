@@ -21,7 +21,7 @@
             <h2>DashStack</h2>
             <a href="dashboard.php" id="dash"><img src="images/dashboard.png"> Dashboard</a>
             <a href="products.php"><img src="images/projects.png"> Products</a>
-            <a href="#"><img src="images/projects.png">Product Stock</a>
+            <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
             <a href="#"><img src="images/inbox.png">Inbox</a>
             <a href="lists.php"><img src="images/projects.png"> Lists</a>
             <div class="options-down">

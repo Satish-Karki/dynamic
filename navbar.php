@@ -35,7 +35,7 @@ if ($query) {
 
             <a href="cart.php"><img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
             <a href="dashboard.php" ><img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="User"></a>
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu">
+            <!-- <img src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" alt="Menu"> -->
         </div>
     </div>
     <script>

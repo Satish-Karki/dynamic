@@ -22,7 +22,7 @@
         <h2>DashStack</h2>
         <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
         <a href="products.php"><img src="images/projects.png"> Products</a>
-        <a href="#"><img src="images/projects.png">Product Stock</a>
+        <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
         <a href="#"><img src="images/inbox.png">Inbox</a>
         <a href="lists.php" id="dash"><img src="images/projects.png"> Lists</a>
         <div class="options-down">
@@ -33,7 +33,7 @@
 
     <div class="user-infos">
        <h2>Details</h2>
-       <h3>Your Products:</h3>
+       <h3>Your Product History:</h3>
        <?php 
         $sql = "SELECT ProductID,Name, Category, Description, Price,Stock FROM products where VendorId='$id'";
         $res = mysqli_query($conn, $sql);?>

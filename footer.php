@@ -1,6 +1,6 @@
 <footer>
     <div class="footer">
-        <div class="logo"><img src="images/logo.png"></div>
+        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
         <div class="footer-column">
             <h3>Contact Us</h3>
             <p>Contact no: <span class="bold">123-456-7890</span></p>
@@ -23,10 +23,11 @@
         <div class="footer-column">
             <h3>Social</h3>
             <div class="social-icons">
-                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="images/instagram.png"alt="Instagram"></a>
-                <a href="#"><img src="images/x.png" alt="Twitter"></a>
-                <a href="#"><img src="images/youtube.png" alt="YouTube"></a>
+                <!-- Font Awesome Icons for social media -->
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>

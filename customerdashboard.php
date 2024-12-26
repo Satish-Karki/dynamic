@@ -9,6 +9,9 @@
 <body>
 <?php 
         session_start();
+        if($_SESSION['user_type']!="Customer"){
+            header("location:login.php");
+        }
         include "navbar.php";
         include "databaseconn.php";
 

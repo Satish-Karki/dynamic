@@ -131,7 +131,7 @@
                 <div class="column">
                     <h3>Payment</h3>
                     <div class="info">
-                        <p>Visa **56</p>
+                        <p>Cash on Delivery</p>
                     </div>
                     <h3>Need Help</h3>
                     <div class="info">

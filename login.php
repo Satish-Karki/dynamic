@@ -33,7 +33,6 @@
             <button type="submit" name="submit" class="btn">Login</button>
             <div class="others">
                 <p>OR</p>
-                <button id="button"><img src="images/Google.png" alt="Google">Continue with Google</button>
                 <a href="signup.php">or create an account</a>
             </div>
         </form>

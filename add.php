@@ -49,17 +49,7 @@ if (isset($_POST['submit'])) {
     $capacity = $_POST['capacity'] . 'L';
     $id = $_SESSION['user_login'];
 
-    if (!is_numeric($price) || $price <= 0) {
-       $message = "Price must be a positive number.";
-        header("location:products.php?message=$message");
-        exit();
-    }
-
-    if (!ctype_digit($stock) || (int)$stock <= 0) {
-      $message = "Stock must be a positive whole number.";
-        header("location:products.php?message=$message");
-        exit();
-    }
+  
 
   
     $sql = "INSERT INTO products (VendorID, image1, image2, image3, image4, Name, Category, Capacity, Description, Price, Stock) 

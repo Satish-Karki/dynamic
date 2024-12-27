@@ -28,7 +28,7 @@
                 </select>
             </div>
             <label class="custom-checkbox">
-                <input type="checkbox" id="terms"> I accept the terms and privacy policy
+                <input type="checkbox" id="terms" required> I accept the terms and privacy policy
             </label>
             <button type="submit" class="btn" name="submit">Sign up</button>
             <div class="others">

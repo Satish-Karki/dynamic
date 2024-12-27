@@ -103,6 +103,7 @@
                         <th>Piece</th>
                         <th>Amount</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,6 +115,7 @@
                         <td><?php echo $row['Quantity']; ?></td>
                         <td><?php echo $row['Amount']; ?></td>
                         <td><?php if($row['Status']=='Delivered'){ ?> <img src="images/delivered.png"> <?php } else{  ?><img src="images/pending.png"><?php }?> </td>
+                        <td><button>Accept</button><button>Reject</button></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -123,6 +125,5 @@
     </div>
 
 </body>
-        <?php include "footer.php";?>
 </html>
 

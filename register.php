@@ -34,11 +34,11 @@ if (isset($_POST['submit'])) {
     $stmt->bind_param("ssss", $role, $uname, $email, $hashPwd);
 
     if ($stmt->execute()) {
-        $_SESSION['msg'] = "Signed up successfully!";
-        header("location:login.php");
+        $message = "Signed up successfully!";
+        header("location:login.php?message=$message");
     } else {
-        $_SESSION['msg'] = "Couldn't sign up. Something went wrong.";
-        header("location:signup.php");
+        $message = "Couldn't sign up. Something went wrong.";
+        header("location:signup.php?message=$message");
     }
 }
 else{

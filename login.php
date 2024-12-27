@@ -15,14 +15,14 @@
 <body>
     
     <div class="contents">
-        <form action="check.php" method="POST" name="login-box">
+        <form action="check.php" method="POST" id="login" name="login-box">
             <h2>Log in</h2>
-            <p id="error"> <?php if(isset($_SESSION['error_msg'])){echo htmlspecialchars($_SESSION['error_msg']);}?></p>
+
             <div class="input-fields">
                 <label for="email"><b>Email</b></label>
-                <input type="email" name="email" id="email" placeholder="Your email" required>
+                <input type="email" name="email" id="email" placeholder="Your email" >
                 <label for="password"><b>Password</b></label>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <input type="password" name="password" id="password" placeholder="Password" >
             </div>
             <div class="other-inputs">
                 <label class="custom-checkbox">
@@ -38,5 +38,6 @@
             </div>
         </form>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>

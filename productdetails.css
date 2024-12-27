@@ -161,7 +161,7 @@ a{
 }
 /* Review Form Styling */
 form[name="review-box"] {
-    background-color: #dcdcdc; /* Black background */
+    background-color: #ffffff; /* Black background */
     color: #000; /* White text */
     padding: 20px; /* Padding around the form */
     border-radius: 8px; /* Rounded corners */

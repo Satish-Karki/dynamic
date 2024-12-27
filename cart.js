@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('.cart-update-form');
     forms.forEach(form => {
         form.addEventListener('submit', (event) => {
-            // Save scroll position
+          
             sessionStorage.setItem('scrollPosition', window.scrollY);
         });
     });

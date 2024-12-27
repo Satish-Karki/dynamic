@@ -1,0 +1,104 @@
+body {
+    background-color: #fff;
+    color: #333;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    }
+
+.subtitle {
+    color: #666;
+    font-size: 1rem;
+}
+
+.wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+.wishlist-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.wishlist-item-details {
+    flex: 1;
+    margin-left: 20px;
+}
+.wishlist-item-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.wishlist-item-remove {
+    color: #e63946;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+.actions {
+ 
+    display: flex;
+    
+    gap:10px;
+}
+
+.bottomactions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+
+input[type='number']{
+    text-align: center;
+}
+.button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: ;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button.primary {
+    background-color: #000;
+    color: #fff;
+    border: none;
+ 
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button.primary:hover {
+    background-color: #333;
+}
+#continue-cart{
+    background-color: #9d9d9d;
+ 
+
+}
+
+#clear-wishlist{
+    background-color: #fff;
+    border:2px solid black;
+}

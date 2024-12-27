@@ -22,8 +22,8 @@ if (isset($_POST['submit'])) {
     $result_check = $stmt_check->get_result();
 
     if ($result_check->num_rows > 0) {
-        $_SESSION['msg'] = "Email already exists!";
-        header("location:signup.php");
+        $message = "Email already exists!!";
+        header("location:signup.php?message=$message");
         exit();
     }
 

@@ -108,7 +108,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         <div class="bottomactions">
             <div class="actions">
-                <button class="button" id="continue-shopping">Continue Shopping</button>
+              <a href="wishlist.php">  <button class="button" id="continue-shopping">Check Wishlist</button></a>
                 <a href="clearcart.php"><button class="button" id="clear-cart">Clear Cart</button></a>
             </div>
             <div class="proceedcheckout">

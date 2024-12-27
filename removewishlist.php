@@ -9,14 +9,14 @@
 
     include "databaseconn.php";
 
-    $sql="DELETE FROM carts WHERE CartID=$id";
+    $sql="DELETE FROM wishlists WHERE WishlistID=$id";
     $res=mysqli_query($conn,$sql);
 
     if($res){
-        $message='Removed from Cart';
-        header("location:cart.php?message=$message");
+        $message='Removed from Wishlist';
+        header("location:wishlist.php?message=$message");
     }
     else{
         $message='Failed to remove';
-        header("location:cart.php?message=$message");
+        header("location:wishlist.php?message=$message");
     }

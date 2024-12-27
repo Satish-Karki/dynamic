@@ -84,12 +84,30 @@ $row = mysqli_fetch_assoc($res);
             </div>
                 <div class="tab-panel hidden" id="reviews">
                 <h2>Reviews</h2>
-                <form action="review.php" method="POST" name="review-box">
-    <label for="reviewText">Write your review:</label><br>
-    <textarea id="reviewText" name="reviewtext" rows="4" cols="50" required></textarea><br><br>
-    <input type="hidden" name="productid" value="<?php echo $id; ?>">
-    <button type="submit" class="btn" name="submit">Submit Review</button>
-</form>
+                <form action="review.php" method="POST" name="review-box" class="review-form">
+                    <div class="review-box-container">
+                        <textarea id="reviewText" name="reviewtext" rows="3" cols="40" placeholder="Write your review here..." required></textarea>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" title="5 stars">&#9733;</label>
+
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars">&#9733;</label>
+
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars">&#9733;</label>
+
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars">&#9733;</label>
+
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star">&#9733;</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" name="submit">Submit Review</button>
+                    <input type="hidden" name="productid" value="<?php echo $id; ?>">
+                </form>
+
 
 
                 <h3>Other Reviews:</h3>
@@ -105,12 +123,21 @@ $row = mysqli_fetch_assoc($res);
 
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<div class='review'>
-                                <strong>" . htmlspecialchars($row['Name']) . "</strong> 
-                                <span class='review-date'>" . htmlspecialchars($row['ReviewedAt']) . "</span>
-                                <p>" . nl2br(htmlspecialchars($row['ReviewText'])) . "</p>
+                    
+                                <strong>" . htmlspecialchars($row['Name']) . "</strong> ";
+                                echo "<span class='review-stars'>";
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        echo $i <= $row['Rating'] ? "&#9733;" : "&#9734;"; 
+                                    }
+                                    echo "</span>";
+                                    echo "<span class='review-date'>" . htmlspecialchars($row['ReviewedAt']) . "</span>";                                 
+                                echo "<p>" . nl2br(htmlspecialchars($row['ReviewText'])) .  "</p>
+                           
+
                             </div><hr>";
                     }
                     ?>
+              
                 </div>
             </div>
 

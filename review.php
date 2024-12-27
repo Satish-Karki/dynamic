@@ -6,7 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $id = $_SESSION['user_login'];
     $text = mysqli_real_escape_string($conn, $_POST['reviewtext']);
     $pid = mysqli_real_escape_string($conn, $_POST['productid']);
-    $sql = "INSERT INTO reviews (ProductID, CustomerID, ReviewText) VALUES ('$pid', '$id', '$text')";
+    $rating = $_POST['rating'];
+
+    $sql = "INSERT INTO reviews (ProductID, CustomerID, ReviewText,Rating) VALUES ('$pid', '$id', '$text','$rating')";
     $res = mysqli_query($conn, $sql);
     if ($res) {
        

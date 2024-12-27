@@ -177,7 +177,6 @@ form[name="review-box"] label {
 
 form[name="review-box"] textarea {
     width: 100%;
-* White border */
     border-radius: 5px;
     padding: 10px;
     font-family: Arial, sans-serif;

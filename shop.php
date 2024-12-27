@@ -143,8 +143,12 @@
                         </a>
                         </div>
                         <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">
-                            <button>Wishlist</button>
+                            <button class="wishlist-btn">
+                                <span class="wishlist-text">Wishlist</span>
+                                <img src="images/wishlist.png" alt="Wishlist Icon" class="wishlist-icon">
+                            </button>
                         </a>
+
                     </div>
                 <?php
                     endwhile;

@@ -115,29 +115,47 @@ a{
     padding: 8px 16px;
     cursor: pointer;
 }
+/* Wishlist Button Styling */
 .wishlist-btn {
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: 2px solid orange;
-    border-radius: 5px;
-    cursor: pointer;
-    background-image: url('images/wishlist.png'); /* Corrected path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: background-color 0.3s ease;
+    align-items: center;
+    display: flex; /* Align items horizontally */
+    gap: 10px; /* Space between text and icon */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid rgb(0, 0, 0); /* Orange border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 40px;
 }
 
-.wishlist-btn.saved {
-    background-color: orange;
-    border: none;
-    background-image: url('images/wishlist.png'); /* Optional filled icon */
+/* Text Styling for Wishlist */
+.wishlist-text {
+    font-size: 14px; /* Adjust font size */
+    color: rgb(0, 0, 0); /* Orange text color */
+    font-weight: bold; /* Bold text */
 }
 
-button{
-    width:20%;
-    height:auto;
-    padding: 0;
-    object-fit:scale-down;
+/* Icon Styling for Wishlist */
+.wishlist-btn img {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    object-fit: contain; /* Keep aspect ratio */
+    transition: transform 0.3s ease; /* Smooth scaling */
+    margin-top: 15px;
 }
 
+/* Hover Effect for Wishlist Button */
+.wishlist-btn:hover {
+    background-color: orange; /* Orange background on hover */
+    color: white; /* Change text color */
+    border-color: orange;
+}
+
+.wishlist-btn:hover .wishlist-icon {
+    transform: scale(1.2); /* Slight zoom on the icon */
+}
+
+.wishlist-btn:hover .wishlist-text {
+    color: white; /* Change text color on hover */
+}

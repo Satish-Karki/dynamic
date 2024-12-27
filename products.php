@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="dashboarde.css">
     <link rel="stylesheet" href="global.css">
    
 
@@ -21,7 +22,7 @@
     <div class="all-container">
         <div class="options">
             <h2>DashStack</h2>
-            <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
+            <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
             <a href="products.php" id="dash"><img src="images/projects.png"> Products</a>
             <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
             <a href="#"><img src="images/inbox.png">Inbox</a>

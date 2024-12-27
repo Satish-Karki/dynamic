@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $customerID = $_SESSION['user_login']; 
     $productID = isset($_POST['product_id']) ? intval($_POST['product_id']) : null;
+    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : null;
 
     include "databaseconn.php";
 
@@ -16,7 +17,7 @@ if (isset($_POST['submit'])) {
 
         $vendorID = $product['VendorID'];
         $productName = $product['ProductName'];
-        $quantity = 1;
+        $quantity = $quantity;
         $amount = $product['Price'];
 
         $insertOrderDetailsSql = "INSERT INTO orderdetails (VendorID, ProductName, Location, Quantity, Amount) 

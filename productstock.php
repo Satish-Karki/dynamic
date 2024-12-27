@@ -12,6 +12,8 @@
     <meta charset="UTF-8">
     <title>Product Stock</title>
     <link rel="stylesheet" href="lists.css">
+    <link rel="stylesheet" href="dashboarde.css">
+    
     <link rel="stylesheet" href="global.css">
     
 </head>
@@ -20,7 +22,7 @@
 <div class="dashboard">
     <div class="options">
         <h2>DashStack</h2>
-        <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
+        <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
         <a href="products.php"><img src="images/projects.png"> Products</a>
         <a href="productstock.php" id="dash"><img src="images/projects.png">Product Stock</a>
         <a href="#"><img src="images/inbox.png">Inbox</a>

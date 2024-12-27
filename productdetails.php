@@ -38,13 +38,9 @@ $row = mysqli_fetch_assoc($res);
             <div class="details">
                 <p><strong>Availability:</strong> <?php echo htmlspecialchars($row['Stock']); ?> in stock</p>
                 <h1><?php echo htmlspecialchars($row['Name']); ?></h1>
-                <ul class="features">
-                    <li><?php echo htmlspecialchars($row['Features']); ?></li>
-                    <li>DoorCooling+™</li>
-                    <li>UltraSleek Door</li>
-                    <li>Large Capacity</li>
-                    <li>Smart Inverter Compressor™</li>
-                </ul>
+                <b>Rating: <?php echo htmlspecialchars($row['Rating']);?></b>
+                <p><?php echo htmlspecialchars($row['Description']); ?></p>
+      
                 <p class="price">
                     <span class="current-price">Rs. <?php echo htmlspecialchars($row['Price']); ?></span>
                 </p>
@@ -65,21 +61,24 @@ $row = mysqli_fetch_assoc($res);
                 </form>
 
                 <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
-                <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">Wishlist</a>
+                <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">
+                            <button class="wishlist-btn">
+                                <span class="wishlist-text">Wishlist</span>
+                                <img src="images/wishlist.png" alt="Wishlist Icon" class="wishlist-icon">
+                            </button>
+                        </a>
             </div>
 
             </div>
         </div>
         <div class="tabs">
-            <button class="tab active" data-tab="description">Description</button>
-            <button class="tab" data-tab="specification">Specification</button>
+     
+            <button class="tab active" data-tab="specification">Specification</button>
             <button class="tab" data-tab="reviews">Reviews</button>
         </div>
         <div class="tab-content">
-            <div class="tab-panel" id="description">
-                <p><?php echo htmlspecialchars($row['Description']); ?></p>
-            </div>
-            <div class="tab-panel hidden" id="specification">
+          
+            <div class="tab-panel" id="specification">
                 <p>Specifications: <br> Energy Rating: 5 Star <br> Power Consumption: 200W <br> Cooling Technology: SpaceMax™</p>
             </div>
                 <div class="tab-panel hidden" id="reviews">

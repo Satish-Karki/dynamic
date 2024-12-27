@@ -110,12 +110,59 @@ html{
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    
 }
 
 .buy-now {
     background-color: #E53935;
-    padding:10px;
+    padding:12px 22px;
     border :2px solid #E53935;
+    
+}
+.buy-now:hover {
+    background:linear-gradient(to right,#E53935,#6e6e6e);
+}
+.wishlist-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between text and icon */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid rgb(0, 0, 0); /* Orange border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 40px;
+}
+
+/* Text Styling for Wishlist */
+.wishlist-text {
+    font-size: 14px; /* Adjust font size */
+    color: rgb(0, 0, 0); /* Orange text color */
+    font-weight: bold; /* Bold text */
+}
+
+.wishlist-btn img {
+    width: 20px; /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    object-fit: contain; /* Keep aspect ratio */
+    transition: transform 0.3s ease; /* Smooth scaling */
+    margin-top: 15px;
+}
+
+/* Hover Effect for Wishlist Button */
+.wishlist-btn:hover {
+    background-color: orange; /* Orange background on hover */
+    color: white; /* Change text color */
+    border-color: orange;
+}
+
+.wishlist-btn:hover .wishlist-icon {
+    transform: scale(1.2); /* Slight zoom on the icon */
+}
+
+.wishlist-btn:hover .wishlist-text {
+    color: white; /* Change text color on hover */
 }
 
 #add-to-cart {
@@ -123,6 +170,7 @@ html{
    background-color: #fff;
    color:black;
    padding:10px;
+
 }
 a{
     text-decoration: none;

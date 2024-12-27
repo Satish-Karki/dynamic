@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 
 .main-container {
     max-width: 1200px;
@@ -157,4 +159,76 @@ a{
 .hidden {
     display: none;
 }
+/* Review Form Styling */
+form[name="review-box"] {
+    background-color: #dcdcdc; /* Black background */
+    color: #000; /* White text */
+    padding: 20px; /* Padding around the form */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #fff; /* White border */
+    margin-top: 20px; /* Space above the form */
+}
 
+form[name="review-box"] label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form[name="review-box"] textarea {
+    width: 100%;
+* White border */
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    resize: vertical; /* Allow resizing vertically only */
+    margin-bottom: 20px;
+}
+
+form[name="review-box"] button {
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form[name="review-box"] button:hover {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+}
+
+/* Reviews List Styling */
+#reviewList {
+    margin-top: 30px;
+}
+
+.review {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.review strong {
+    font-size: 16px;
+    color: #fff;
+}
+
+.review .review-date {
+    font-size: 12px;
+    color: #ccc; /* Grey color for date */
+    margin-left: 10px;
+}
+
+.review p {
+    margin-top: 10px;
+    line-height: 1.5;
+}

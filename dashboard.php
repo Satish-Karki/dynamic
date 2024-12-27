@@ -74,7 +74,7 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <p>Total Orders Pending</br></br>   
+                        <p>Total Orders Pending</br></br>
                     <b> 40,689</b></p>
                         <div class="stat">
                             <img src="images/up.png" alt="Upwards">

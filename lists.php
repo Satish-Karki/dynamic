@@ -13,19 +13,18 @@
     <meta charset="UTF-8">
     <title>Project</title>
     <link rel="stylesheet" href="lists.css">
-    <link rel="stylesheet" href="dashboarde.css">
     <link rel="stylesheet" href="global.css">
     
 </head>
-<body>
+
 <div class="dashboard">
     <div class="options">
         <h2>DashStack</h2>
-        <span class="items"><a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a></span>
-        <span class="items"><a href="products.php"><img src="images/projects.png"> Products</a></span>
-        <span class="items"><a href="productstock.php"><img src="images/projects.png">Product Stock</a></span>
-        <span class="items"><a href="#"><img src="images/inbox.png">Inbox</a></span>
-        <span class="items"><a href="lists.php" id="dash"><img src="images/projects.png"> Lists</a></span>
+        <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
+        <a href="products.php"><img src="images/projects.png"> Products</a>
+        <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
+        <a href="#"><img src="images/inbox.png">Inbox</a>
+        <a href="lists.php" id="dash"><img src="images/projects.png"> Lists</a>
         <div class="options-down">
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>

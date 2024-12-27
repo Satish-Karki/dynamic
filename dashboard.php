@@ -91,7 +91,7 @@
     
     <?php 
         $id=$_SESSION['user_login'];
-        $sql = "SELECT ProductName, Location, DateTime, Quantity,Amount,Status FROM orderdetails where VendorId='$id'";
+        $sql = "SELECT OrderID,ProductName, Location, DateTime, Quantity,Amount,Status FROM orderdetails where VendorId='$id'";
         $res = mysqli_query($conn, $sql);?>
             <table>
             <b>Product Details</b>
@@ -115,7 +115,7 @@
                         <td><?php echo $row['Quantity']; ?></td>
                         <td><?php echo $row['Amount']; ?></td>
                         <td><?php if($row['Status']=='Delivered'){ ?> <img src="images/delivered.png"> <?php } else{  ?><img src="images/pending.png"><?php }?> </td>
-                        <td><button>Accept</button><button>Reject</button></td>
+                        <td><a href="accept.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>"><button>Accept</button></a><a href="reject.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>"><button>Reject</button></a></td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>

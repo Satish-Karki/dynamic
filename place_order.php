@@ -14,22 +14,21 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT VendorID, Name AS ProductName, Price FROM products WHERE ProductID = $productID";
         $result = mysqli_query($conn, $sql);
         $product = mysqli_fetch_assoc($result);
-
+        $customerID=$_SESSION['user_login'];
         $vendorID = $product['VendorID'];
         $productName = $product['ProductName'];
         $quantity = $quantity;
         $amount = $product['Price'];
 
-        $insertOrderDetailsSql = "INSERT INTO orderdetails (VendorID, ProductName, Location, Quantity, Amount) 
-                                  VALUES ('$vendorID', '$productName', '$address', $quantity, $amount)";
+        $insertOrderDetailsSql = "INSERT INTO orderdetails (ProductID, CustomerID,VendorID, ProductName, Location, Quantity, Amount) 
+                                  VALUES ('$productID','$customerID','$vendorID', '$productName', '$address', $quantity, $amount)";
         mysqli_query($conn, $insertOrderDetailsSql);
 
-        $insertOrdersSql = "INSERT INTO orders (CustomerID, VendorID, ProductName, Quantity, TotalAmount) 
-                            VALUES ('$customerID', '$vendorID', '$productName', $quantity, $amount)";
+        $insertOrdersSql = "INSERT INTO orders (ProductID,CustomerID, VendorID, ProductName, Quantity, TotalAmount) 
+                            VALUES ('$productID','$customerID', '$vendorID', '$productName', $quantity, $amount)";
         mysqli_query($conn, $insertOrdersSql);
 
-        $updateStockSql = "UPDATE products SET Stock = Stock - $quantity WHERE ProductID = $productID";
-        mysqli_query($conn, $updateStockSql);
+       
     } else {
         $sql = "SELECT 
                     carts.ProductID, 
@@ -43,21 +42,20 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
 
         while ($row = mysqli_fetch_assoc($result)) {
+            $productID=$row['ProductID'];
+            $customerID=$_SESSION['user_login'];
             $vendorID = $row['VendorID'];
             $productName = $row['ProductName'];
             $quantity = $row['Quantity'];
             $amount = $row['Amount'];
-
-            $insertOrderDetailsSql = "INSERT INTO orderdetails (VendorID, ProductName, Location, Quantity, Amount) 
-                                      VALUES ('$vendorID', '$productName', '$address', $quantity, $amount)";
+            $insertOrderDetailsSql = "INSERT INTO orderdetails (ProductID, CustomerID,VendorID, ProductName, Location, Quantity, Amount) 
+            VALUES ('$productID','$customerID','$vendorID', '$productName', '$address', $quantity, $amount)";
             mysqli_query($conn, $insertOrderDetailsSql);
 
             $insertOrdersSql = "INSERT INTO orders (CustomerID, VendorID, ProductName, Quantity, TotalAmount) 
                                 VALUES ('$customerID', '$vendorID', '$productName', $quantity, $amount)";
             mysqli_query($conn, $insertOrdersSql);
 
-            $updateStockSql = "UPDATE products SET Stock = Stock - $quantity WHERE ProductID = " . $row['ProductID'];
-            mysqli_query($conn, $updateStockSql);
         }
 
         $clearCartSql = "DELETE FROM carts WHERE CustomerID = $customerID";

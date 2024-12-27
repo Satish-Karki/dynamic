@@ -9,6 +9,7 @@ if (!isset($_SESSION['user_login'])) {
 include "databaseconn.php";
 
 $productID = isset($_GET['id']) ? intval($_GET['id']) : null;
+$quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : null;
 $fromCart = isset($_GET['from']) && $_GET['from'] === 'cart';
 $product = null;
 
@@ -54,6 +55,7 @@ $conn->close();
                 
                 <?php if ($productID): ?>
                     <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($productID); ?>">
+                    <input type="hidden" name="quantity" value="<?php echo htmlspecialchars($quantity); ?>">
                 <?php endif; ?>
                 <div class="section">
                     <h2>Address & Payment</h2>

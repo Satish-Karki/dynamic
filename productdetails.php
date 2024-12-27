@@ -49,16 +49,21 @@ $row = mysqli_fetch_assoc($res);
                     <span class="current-price">Rs. <?php echo htmlspecialchars($row['Price']); ?></span>
                 </p>
                 <div class="actions">
-                <label>Quantity</label>
-                <input 
-                    type="number" 
-                    value="1" 
-                    class="quantity" 
-                    min="1" 
-                    max="<?php echo htmlspecialchars($row['Stock']); ?>" 
-                    oninput="checkMax(this)"
-                >
-                <a href="checkout.php?id=<?php echo $row['ProductID']; ?>" class="btn buy-now">Buy Now</a>
+                <form action="checkout.php" method="GET" class="buy-now-form">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['ProductID']); ?>">
+                    <label>Quantity</label>
+                    <input 
+                        type="number" 
+                        name="quantity" 
+                        value="1" 
+                        class="quantity" 
+                        min="1" 
+                        max="<?php echo htmlspecialchars($row['Stock']); ?>" 
+                        required
+                    >
+                    <button type="submit" class="btn buy-now">Buy Now</button>
+                </form>
+
                 <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
                 <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">Wishlist</a>
             </div>

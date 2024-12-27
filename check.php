@@ -22,13 +22,13 @@ if (isset($_POST['submit'])) {
 
            header("location:home.php");
         } else {
-            $_SESSION['error_msg'] = "Invalid email or password.";
-            header("Location: login.php");
+           $message = "Invalid email or password.";
+            header("Location: login.php?message=$message");
             exit();
         }
     } else {
-        $_SESSION['error_msg'] = "No user found with that email.";
-        header("Location: login.php");
+        $message = "No user found with that email.";
+        header("Location: login.php?message=$message");
         exit();
     }
 } else {

@@ -24,6 +24,7 @@
         <title>Product Listing</title>
         <link rel="stylesheet" href="shop.css">
         <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     </head>
     <body>
@@ -142,8 +143,12 @@
                         </a>
                         </div>
                         <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=shop" class="add-to" id="add-to-wishlist">
-                            <button>Wishlist</button>
+                            <button class="wishlist-btn">
+                                <span class="wishlist-text">Wishlist</span>
+                                <img src="images/wishlist.png" alt="Wishlist Icon" class="wishlist-icon">
+                            </button>
                         </a>
+
                     </div>
                 <?php
                     endwhile;

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="dashboarde.css">
     <link rel="stylesheet" href="global.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     </head>
 </html>
 <body>
-   <?php  
+    <?php
         session_start();
         if (!isset($_SESSION['user_login']) && $_SESSION['user_type'] != 'Vendor') {
             header("location:login.php");

@@ -84,22 +84,23 @@ $row = mysqli_fetch_assoc($res);
             </div>
                 <div class="tab-panel hidden" id="reviews">
                 <h2>Reviews</h2>
-                <form action="review.php" method="POST" name="review-box ">
-                    <label for="reviewText">Write your review:</label><br>
-                    <textarea id="reviewText" name="reviewtext" rows="4" cols="50" required></textarea><br><br>
-                    <input type="hidden" name="productid" value="<?php echo $id?>">
-                    <button type="submit" class="btn" name="submit"> Submit Review</button>
-                </form>
+                <form action="review.php" method="POST" name="review-box">
+    <label for="reviewText">Write your review:</label><br>
+    <textarea id="reviewText" name="reviewtext" rows="4" cols="50" required></textarea><br><br>
+    <input type="hidden" name="productid" value="<?php echo $id; ?>">
+    <button type="submit" class="btn" name="submit">Submit Review</button>
+</form>
+
 
                 <h3>Other Reviews:</h3>
                 <div id="reviewList">
                     <?php
                 
-                        $sql = "SELECT reviews.*, users.Name 
+                        $sql = "SELECT reviews.*, users.Name
                         FROM reviews
                         INNER JOIN users ON reviews.CustomerID = users.UserID
                         WHERE reviews.ProductID = $id
-                        ORDER BY reviews.ReviewedAt DESC"; 
+                        ORDER BY reviews.ReviewedAt DESC";
                         $result = mysqli_query($conn, $sql);
 
                     while ($row = mysqli_fetch_assoc($result)) {

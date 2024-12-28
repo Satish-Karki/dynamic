@@ -26,7 +26,7 @@
         <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
         <a href="lists.php" id="dash"><img src="images/projects.png"> Lists</a>
         <div class="options-down">
-            <a href="#">Settings</a>
+            <a href="settings.php">Settings</a>
             <a href="logout.php">Logout</a>
         </div>
     </div>

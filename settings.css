@@ -1,0 +1,65 @@
+
+       .profile{
+        display: flex;
+        margin-left:1%;
+       }
+       .options a:hover{
+        
+       }
+        .user-info {
+            
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .user-info h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 10px;
+        }
+
+      
+        .info-item {
+           
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        label {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .value {
+            color: #000000; /* Lighter gray for the data */
+        }
+
+        /* Modify button */
+        .modify-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #fff; /* White background */
+            color: #000; /* Black text */
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .modify-btn:hover {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            border: 1px solid #fff;
+        }

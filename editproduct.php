@@ -37,11 +37,11 @@
             <h2>DashStack</h2>
             <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
             <a href="products.php" id="dash"><img src="images/projects.png"> Products</a>
-            <a href="#"><img src="images/projects.png">Product Stock</a>
-            <a href="#"><img src="images/inbox.png">Inbox</a>
+            <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
+            <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
             <a href="lists.php"><img src="images/projects.png"> Lists</a>
             <div class="options-down">
-                <a href="#">Settings</a>
+            <a href="settings.php">Settings</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

@@ -47,7 +47,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <body>
     <div class="container">
         <h1 class="title">Your Cart</h1>
-        <p class="subtitle">Not ready to checkout? <a href="shop.php" style="text-decoration: underline;">Continue Shopping</a></p>
+        <p class="subtitle">Not ready to checkout? <a href="shop.php" id="continue">Continue Shopping</a></p>
         
         <?php if (!empty($cartItems)): ?>
             <div id="cart-items">

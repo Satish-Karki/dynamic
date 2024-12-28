@@ -134,7 +134,7 @@ $result = mysqli_query($conn, $sql);
             <a href="inboxc.php" id="dash"><img src="images/inbox.png">Inbox</a>
        
             <div class="options-down">
-                <a href="#">Settings</a>
+                <a href="settingsc.php">Settings</a>
                 <a href="logout.php">Logout</a>
             </div>
         </div>

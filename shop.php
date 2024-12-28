@@ -67,31 +67,7 @@
                     </ul>
                 </div>
 
-                <div class="filter-category">
-                    <h3>Features</h3>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="HygieneFresh" name="features" value="hygiene-fresh">
-                            <label for="HygieneFresh">Hygiene Fresh</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="IceWater" name="features" value="ice-water">
-                            <label for="IceWater">Ice & Water Dispenser</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="InstaViewDoor" name="features" value="instaview-door">
-                            <label for="InstaViewDoor">InstaView™ Door-in-Door®</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="DoorCooling" name="features" value="door-cooling">
-                            <label for="DoorCooling">Door Cooling+</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="SmartDiagnosis" name="features" value="smart-diagnosis">
-                            <label for="SmartDiagnosis">Smart Diagnosis™</label>
-                        </li>
-                    </ul>
-                </div>
+                
 
                 <div class="filter-category">
                     <h3>Smart Technology</h3>

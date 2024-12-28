@@ -15,31 +15,27 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    $sql_check = "SELECT * FROM users WHERE Email = ?";
-    $stmt_check = $conn->prepare($sql_check);
-    $stmt_check->bind_param("s", $email);
-    $stmt_check->execute();
-    $result_check = $stmt_check->get_result();
-
-    if ($result_check->num_rows > 0) {
+    $sql_check = "SELECT * FROM users WHERE Email = $email";
+    $res=mysqli_query($conn,$sql);
+    $result_check = $res->get_result();
+    if ($res && mysqli_num_rows($res) > 0) {
         $message = "Email already exists!!";
-        header("location:signup.php?message=$message");
+        header("Location: signup.php?message=" . urlencode($message));
         exit();
-    }
-
+    } else {
 
     $hashPwd = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (UserType, Name, Email, PasswordHash) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $role, $uname, $email, $hashPwd);
+    $sql = "INSERT INTO users (UserType, Name, Email, PasswordHash) VALUES ('$role', '$uname', '$email','$hashPwd')";
+    $res=mysqli_query($conn,$sql);
 
-    if ($stmt->execute()) {
+    if ($res) {
         $message = "Signed up successfully!";
         header("location:login.php?message=$message");
     } else {
         $message = "Couldn't sign up. Something went wrong.";
         header("location:signup.php?message=$message");
     }
+}
 }
 else{
     header("location:signup.php");

@@ -57,7 +57,7 @@ $row = mysqli_fetch_assoc($res);
                         max="<?php echo htmlspecialchars($row['Stock']); ?>" 
                         required
                     >
-                    <button type="submit" class="btn buy-now">Buy Now</button>
+                    <button type="submit" class="buy-now">Buy Now</button>
                 </form>
 
                 <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">
@@ -115,7 +115,7 @@ $row = mysqli_fetch_assoc($res);
 
 
                 <button id="toggleReviewsBtn" class="btn">See Reviews</button>
-
+ 
                 <div class="reviewList" id="reviewList" style="display: none;">
                     <?php
                     $sql = "SELECT reviews.*, users.Name

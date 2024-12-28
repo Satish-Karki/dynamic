@@ -42,6 +42,11 @@
             
             margin-right:17px;
         }
+        .options a:hover{
+            background-color:#4880FF;;
+            color:white;
+            border-radius:6px;
+        }
         
          .dashboard a:hover{
             background-color:#4880FF;;

@@ -53,21 +53,21 @@ if (isset($_GET['filter'])) {
     }
 }
 
-// Execute the query
+
 $res = mysqli_query($conn, $sql);
 ?>
 
 <div class="contents">
-    <div class="options">
-        <h2>DashStack</h2>
-        <a href="customerdashboard.php" id="dash"><img src="images/dashboard.png"> Orders</a>
-        <a href="inboxc.php"><img src="images/inbox.png">Inbox</a>
-        <div class="options-down">
-            <a href="#">Settings</a>
-            <a href="logout.php">Logout</a>
+<div class="options">
+            <h2>DashStack</h2>
+            <a href="customerdashboard.php"  id="dash"><img src="images/ndashboard.png"> Orders</a>
+            <a href="inboxc.php"><img src="images/inbox.png">Inbox</a>
+       
+            <div class="options-down">
+                <a href="settingsc.php">Settings</a>
+                <a href="logout.php">Logout</a>
+            </div>
         </div>
-    </div>
-
     <div class="order-details">
         <h1>Orders: </h1>
         <div class="filter">

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet" href="global.css">
+  
 </head>
 <body>
-   <?php include "navbar.php";?>
+ 
     <div class="contents">
         <form action="register.php" method="POST" id="signup-form" name="signup-box">
             <h2>Sign Up</h2>

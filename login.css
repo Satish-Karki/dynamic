@@ -1,7 +1,15 @@
    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
-   .dashboard{
-    background-color: aquamarine;
-   }
+   
+   *{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
         .contents {
             display: flex;
             flex-direction: column;

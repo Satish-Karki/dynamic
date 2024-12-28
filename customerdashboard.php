@@ -34,12 +34,19 @@ $sql_order_summary = "
     FROM orderdetails 
     WHERE CustomerID = $id AND Status IN ('Pending', 'Shipping')
 ";
+
 $result_order_summary = mysqli_query($conn, $sql_order_summary);
 $row_order_summary = mysqli_fetch_assoc($result_order_summary);
 $pending_amount = $row_order_summary['PendingAmount'] ?? 0;
-
-$tax = round(($pending_amount + 800) * 0.13, 2);
-$total_amount = $pending_amount + 800 + $tax;
+if($row_order_summary['PendingAmount']=='')
+{
+    $shipping_amount=0;
+}
+else{
+    $shipping_amount=800;
+}
+$tax = round(($pending_amount + $shipping_amount) * 0.13, 2);
+$total_amount = $pending_amount + $shipping_amount + $tax;
 
 $sql = "
     SELECT 
@@ -179,7 +186,7 @@ $res = mysqli_query($conn, $sql);
                 </div>
                 <div class="info">
                     <p>Shipping</p>
-                    <p>Rs. 800</p>
+                    <p>Rs. <?php echo  $shipping_amount;?></p>
                 </div>
                 <div class="info">
                     <p>Tax</p>

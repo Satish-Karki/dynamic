@@ -4,7 +4,7 @@ include "databaseconn.php";
 $query = isset($_GET['query']) ? mysqli_real_escape_string($conn, $_GET['query']) : '';
 
 if ($query) {
-    $sql = "SELECT ProductID as id, Name as name,  TRIM(image1) as image1
+    $sql = "SELECT ProductID as id, Name as name,  image1 as imagel
             FROM products 
             WHERE Name LIKE '%$query%' 
             LIMIT 10";
@@ -14,8 +14,7 @@ if ($query) {
     while ($row = mysqli_fetch_assoc($result)) {
         $suggestions[] = $row;
     }
-    var_dump($suggestions);
-    echo json_encode($suggestions);
+   
 } 
 ?>
 <div class="navbar">
@@ -39,9 +38,12 @@ if ($query) {
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
     const searchBar = document.getElementById("search-bar");
     const searchResults = document.getElementById("search-results");
+
+   
+    const basePath = '/projects/';
 
     searchBar.addEventListener("input", function () {
         const query = searchBar.value.trim();
@@ -49,16 +51,14 @@ if ($query) {
             fetch(`search.php?query=${query}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data); 
+                    console.log(data); // Log data for debugging
                     if (data.length > 0) {
                         searchResults.style.display = "block";
                         searchResults.innerHTML = data
-                   
                             .map(item => `
-                            
                                 <a href="productdetails.php?id=${item.id}">
-                                    <img src="${item.image1}" alt="${item.name}">
-                                    ${item.name}
+                                    <img src="${basePath}${item.imagel}" alt="${item.name}">
+                                    <span>${item.name}</span>
                                 </a>
                             `)
                             .join("");
@@ -66,19 +66,11 @@ if ($query) {
                         searchResults.style.display = "none";
                         searchResults.innerHTML = "";
                     }
-                });
+                })
+                .catch(error => console.error("Error fetching search results:", error));
         } else {
             searchResults.style.display = "none";
             searchResults.innerHTML = "";
-        }
-    });
-
-    searchBar.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-            const query = searchBar.value.trim();
-            if (query.length > 0) {
-                window.location.href = `shop.php?search=${query}`;
-            }
         }
     });
 
@@ -88,5 +80,7 @@ if ($query) {
         }
     });
 });
+
+
 </script>
     

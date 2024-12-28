@@ -8,10 +8,11 @@ if (!isset($_SESSION['user_login'])) {
 }
 
 $currentUserId = $_SESSION['user_login'];
+
+$currentUserType = $_SESSION['user_type'];
 if($currentUserType!='Vendor'){
     header("location:inboxc.php");
 }
-$currentUserType = $_SESSION['user_type'];
 if ($currentUserType == 'Vendor') {
     $sql = "
         SELECT 

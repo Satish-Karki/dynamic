@@ -16,7 +16,26 @@
     }
     
         include "navbar.php";
-        include "databaseconn.php";?>
+        include "databaseconn.php";
+        $id=$_SESSION['user_login'];
+                $sql_total_orders = "SELECT COUNT(*) AS total_orders FROM orderdetails WHERE VendorID = $id";
+        $res_total_orders = mysqli_query($conn, $sql_total_orders);
+        $total_orders = mysqli_fetch_assoc($res_total_orders)['total_orders'];
+
+      
+        $sql_total_users = "SELECT COUNT(DISTINCT CustomerID) AS total_users FROM orderdetails WHERE VendorID = $id";
+        $res_total_users = mysqli_query($conn, $sql_total_users);
+        $total_users = mysqli_fetch_assoc($res_total_users)['total_users'];
+
+        $sql_total_sales = "SELECT SUM(Amount) AS total_sales FROM orderdetails WHERE VendorID = $id AND Status = 'Delivered'";
+        $res_total_sales = mysqli_query($conn, $sql_total_sales);
+        $total_sales = mysqli_fetch_assoc($res_total_sales)['total_sales'];
+
+     
+        $sql_total_pending = "SELECT COUNT(*) AS total_pending FROM orderdetails WHERE VendorID = $id AND Status = 'Pending'";
+        $res_total_pending = mysqli_query($conn, $sql_total_pending);
+        $total_pending = mysqli_fetch_assoc($res_total_pending)['total_pending'];
+        ?>
     <div class="dashboard">
         <div class="options">
             <h2>DashStack</h2>
@@ -33,64 +52,66 @@
 
         <div class="user-infos">
             <h2>Dashboard</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-content">
-                        <p>Total Users</br></br>
-                    <b> 40,689</b></p>
-                        <div class="stat">
-                            <img src="images/up.png" alt="Upwards">
-                            <span>8.5% Up from yesterday</span>
+                        
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Total Users</br></br>
+                            <b><?php echo htmlspecialchars($total_users); ?></b></p>
+                            <div class="stat">
+                                <img src="images/up.png" alt="Upwards">
+                                <span>Unique customers who ordered</span>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src="images/icon.png" alt="User Icon">
                         </div>
                     </div>
-                    <div class="icon">
-                        <img src="images/icon.png" alt="User Icon">
-                    </div>
-                </div>
-            <div class="card">
-                    <div class="card-content">
-                        <p>Total Order</br></br>
-                    <b> 40,689</b></p>
-                        <div class="stat">
-                            <img src="images/up.png" alt="Upwards">
-                            <span>8.5% Up from yesterday</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Total Orders</br></br>
+                            <b><?php echo htmlspecialchars($total_orders); ?></b></p>
+                            <div class="stat">
+                                <img src="images/up.png" alt="Upwards">
+                                <span>Total orders from your products</span>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src="images/order.png" alt="Order Icon">
                         </div>
                     </div>
-                    <div class="icon">
-                        <img src="images/order.png" alt="User Icon">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <p>Total Sales</br></br>
-                    <b> 40,689</b></p>
-                        <div class="stat">
-                            <img src="images/up.png" alt="Upwards">
-                            <span>8.5% Up from yesterday</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Total Sales</br></br>
+                            <b>Rs. <?php echo htmlspecialchars($total_sales); ?></b></p>
+                            <div class="stat">
+                                <img src="images/up.png" alt="Upwards">
+                                <span>Sales from delivered orders</span>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src="images/sales.png" alt="Sales Icon">
                         </div>
                     </div>
-                    <div class="icon">
-                        <img src="images/sales.png" alt="User Icon">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <p>Total Orders Pending</br></br>
-                    <b> 40,689</b></p>
-                        <div class="stat">
-                            <img src="images/up.png" alt="Upwards">
-                            <span>8.5% Up from yesterday</span>
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Total Orders Pending</br></br>
+                            <b><?php echo htmlspecialchars($total_pending); ?></b></p>
+                            <div class="stat">
+                                <img src="images/up.png" alt="Upwards">
+                                <span>Orders waiting for processing</span>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src="images/orderpending.png" alt="Order Pending Icon">
                         </div>
                     </div>
-                    <div class="icon">
-                        <img src="images/orderpending.png" alt="User Icon">
-                    </div>
                 </div>
-            </div>
+         
     <div class="unknown">
     
     <?php 
-        $id=$_SESSION['user_login'];
+      
         $sql = "SELECT OrderID,ProductName, Location, DateTime, Quantity,Amount,Status FROM orderdetails where VendorId='$id'";
         $res = mysqli_query($conn, $sql);?>
             <table>

@@ -1,6 +1,11 @@
 <?php   
     session_start();
     include "databaseconn.php";
+    if (!isset($_SESSION['user_login']) || $_SESSION['user_type'] != 'Vendor') {
+        header("location:login.php");
+        exit(); 
+    }
+    
     $id=$_SESSION['user_login'];
     $sql = "SELECT * FROM products WHERE VendorID = $id AND Stock > 0";
     $res=mysqli_query($conn,$sql);
@@ -25,7 +30,7 @@
         <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
         <a href="products.php"><img src="images/projects.png"> Products</a>
         <a href="productstock.php" id="dash"><img src="images/projects.png">Product Stock</a>
-        <a href="#"><img src="images/inbox.png">Inbox</a>
+        <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
         <a href="lists.php" ><img src="images/projects.png"> Lists</a>
         <div class="options-down">
             <a href="#">Settings</a>

@@ -14,10 +14,11 @@
 <body>
     <?php
         session_start();
-        if (!isset($_SESSION['user_login']) && $_SESSION['user_type'] != 'Vendor') {
+        if (!isset($_SESSION['user_login']) || $_SESSION['user_type'] != 'Vendor') {
             header("location:login.php");
             exit(); 
         }
+        
         include "navbar.php";?>
     <div class="all-container">
         <div class="options">
@@ -25,7 +26,7 @@
             <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
             <a href="products.php" id="dash"><img src="images/projects.png"> Products</a>
             <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
-            <a href="#"><img src="images/inbox.png">Inbox</a>
+            <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
             <a href="lists.php"><img src="images/projects.png"> Lists</a>
             <div class="options-down">
                 <a href="#">Settings</a>

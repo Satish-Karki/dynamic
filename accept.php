@@ -24,6 +24,7 @@ if (!$res || mysqli_num_rows($res) === 0) {
 $row = mysqli_fetch_assoc($res);
 $productid = $row['ProductID'];
 $quantity = $row['Quantity'];
+$customerid=$row['CustomerID'];
 
 $checkStockSql = "SELECT Stock FROM products WHERE ProductID = $productid";
 $stockRes = mysqli_query($conn, $checkStockSql);
@@ -46,6 +47,10 @@ mysqli_query($conn, $updateStockSql);
 
 $updateOrderSql = "UPDATE orderdetails SET Status = 'Shipping' WHERE OrderID = $id";
 mysqli_query($conn, $updateOrderSql);
+$vendorid=$_SESSION['user_login'];
+
+$inboxsql="INSERT into inbox (ProductID,CustomerID,VendorID,Messages) VALUES ('$productid','$customerid','$vendorid','Your Order for $productid has been accepted by the Vendor')";
+$res=mysqli_query($conn,$inboxsql);
 
 header("location:dashboard.php");
 exit();

@@ -12,36 +12,12 @@
         if($_SESSION['user_type']!="Customer"){
             header("location:login.php");
         }
-        include "navbar.php";
+        include "navbar.php";   
         include "databaseconn.php";
 
         $id = $_SESSION['user_login'];
-        $filter = $_GET['filter'] ?? 'all';
-        $start_date = $_GET['start_date'] ?? null;
-        $end_date = $_GET['end_date'] ?? null;
+    
 
-        $queryCondition = "WHERE CustomerID='$id'";
-        if ($filter === 'daily') {
-            $queryCondition .= " AND DATE(OrderedAt) = CURDATE()";
-        } elseif ($filter === 'weekly') {
-            $queryCondition .= " AND YEARWEEK(OrderedAt, 1) = YEARWEEK(CURDATE(), 1)";
-        } elseif ($filter === 'monthly') {
-            $queryCondition .= " AND MONTH(OrderedAt) = MONTH(CURDATE()) AND YEAR(OrderedAt) = YEAR(CURDATE())";
-        } elseif ($filter === 'custom' && $start_date && $end_date) {
-            $queryCondition .= " AND DATE(OrderedAt) BETWEEN '$start_date' AND '$end_date'";
-        }
-
-        $orderQuery = "SELECT * FROM orders $queryCondition";
-        $orderResult = mysqli_query($conn, $orderQuery);
-
-        $totalQuery = "SELECT COUNT(*) as total_orders FROM orders $queryCondition";
-        $pendingQuery = "SELECT COUNT(*) as pending_orders FROM orders $queryCondition AND OrderStatus='Pending'";
-
-        $totalResult = mysqli_fetch_assoc(mysqli_query($conn, $totalQuery));
-        $pendingResult = mysqli_fetch_assoc(mysqli_query($conn, $pendingQuery));
-
-        $totalOrders = $totalResult['total_orders'];
-        $pendingOrders = $pendingResult['pending_orders'];
     ?>
 
     <div class="contents">
@@ -61,29 +37,9 @@
                 <input type="date" id="custom-end-date" class="custom-date" style="display:none;" placeholder="End Date">
             </div>
 
-    <div class="status">
-        <div class="step completed">
-            <div class="icon"><i class="fas fa-check"></i></div>
-            <div>Order Confirmed</div>
-            <div>Wed, 21st Nov</div>
-        </div>
-        <div class="step completed">
-            <div class="icon"><i class="fas fa-shipping-fast"></i></div>
-            <div>Shipped</div>
-            <div>Wed, 21st Nov</div>
-        </div>
-        <div class="step">
-            <div class="icon"><i class="fas fa-box"></i></div>
-            <div>Delivered</div>
-            <div>Expected by, 26th Nov</div>
-        </div>
-    </div>
 
     <div class="order-items" id="order-items">
-        <?php 
-         
-
-          
+        <?php           
             $sql = "
             SELECT 
                 orders.OrderID, 
@@ -93,9 +49,11 @@
                 orders.TotalAmount, 
                 orders.OrderStatus,  
                 orders.OrderedAt,
-                users.Name AS VendorName
+                users.Name AS VendorName,
+                products.image1 AS image
             FROM orders
             INNER JOIN users ON orders.VendorID = users.UserID
+            INNER JOIN products ON orders.ProductID = products.ProductID
             WHERE orders.CustomerID = $id
         ";
             $res=mysqli_query($conn,$sql);
@@ -104,20 +62,17 @@
         ?>
         <div class="item">
             <div class="image">
-                <img src="pic" alt="Item Image">
+                <img src="<?php echo htmlspecialchars($row['image']);?>" alt="Item Image">
             </div>
             <div class="description">
                 <div><?php echo htmlspecialchars($row['ProductName']);?></div>
                 <div>Vendor: <?php echo htmlspecialchars($row['VendorName']);?></div>
             </div>
             <div>Total: Rs. <?php echo htmlspecialchars($row['TotalAmount']);?></div>
+            <div><?php echo htmlspecialchars($row['OrderStatus']);?></div>
         </div>
         <?php endwhile; ?>
     </div>
-
-  
-    <p>Total Orders: <span id="total-orders"><?php echo $totalOrders; ?></span></p>
-    <p>Pending Orders: <span id="pending-orders"><?php echo $pendingOrders; ?></span></p>
 
 
             <div class="transactions">

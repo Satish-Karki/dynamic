@@ -23,7 +23,7 @@
         <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
         <a href="products.php"><img src="images/projects.png"> Products</a>
         <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
-        <a href="#"><img src="images/inbox.png">Inbox</a>
+        <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
         <a href="lists.php" id="dash"><img src="images/projects.png"> Lists</a>
         <div class="options-down">
             <a href="#">Settings</a>

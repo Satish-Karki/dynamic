@@ -18,7 +18,6 @@
     <title>Product Stock</title>
     <link rel="stylesheet" href="lists.css">
     <link rel="stylesheet" href="dashboarde.css">
-    
     <link rel="stylesheet" href="global.css">
     
 </head>
@@ -66,9 +65,9 @@
             </td>
 
             </tr>
-            <?php 
+            <?php
                 endwhile;
-               ?>
+            ?>
         </tbody>
        </table>
     </div>

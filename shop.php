@@ -5,7 +5,7 @@
     $searchQuery = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 
 
-    $sql = "SELECT ProductID,image1, Name, Category, Features, Capacity, Price, VendorID 
+    $sql = "SELECT ProductID,image1, Name, Category,  Capacity, Price, VendorID 
             FROM products";
 
     if ($searchQuery) {
@@ -101,7 +101,7 @@
                 ?>
                     <div class="product-card"
                         data-type="<?php echo htmlspecialchars($row['Category']); ?>" 
-                        data-features="<?php echo htmlspecialchars($row['Features']); ?>" 
+                 
                         data-capacity="<?php echo htmlspecialchars($row['Capacity']); ?>">
                         
                         <a href="productdetails.php?id=<?php echo $row['ProductID']; ?>">

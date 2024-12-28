@@ -20,7 +20,7 @@ $feedback = htmlspecialchars($_POST['feedback'], ENT_QUOTES);
 
 try {
     $smail = new PHPMailer(true);
-
+    
     $smail->isSMTP();
     $smail->Host = 'smtp.gmail.com';
     $smail->SMTPAuth = true;

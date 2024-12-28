@@ -84,6 +84,7 @@ $res = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="customerdashboard.css">
+    <link rel="stylesheet" href="dashboarde.css">
     <link rel="stylesheet" href="global.css">
 </head>
 <body>

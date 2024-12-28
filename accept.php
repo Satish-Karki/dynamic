@@ -47,6 +47,7 @@ mysqli_query($conn, $updateStockSql);
 
 $updateOrderSql = "UPDATE orderdetails SET Status = 'Shipping' WHERE OrderID = $id";
 mysqli_query($conn, $updateOrderSql);
+
 $vendorid=$_SESSION['user_login'];
 
 $inboxsql="INSERT into inbox (ProductID,CustomerID,VendorID,Messages) VALUES ('$productid','$customerid','$vendorid','Your Order for $productid has been accepted by the Vendor')";

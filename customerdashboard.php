@@ -42,19 +42,19 @@
         <?php           
             $sql = "
             SELECT 
-                orders.OrderID, 
-                orders.CustomerID,
-                orders.ProductName, 
-                orders.Quantity, 
-                orders.TotalAmount, 
-                orders.OrderStatus,  
-                orders.OrderedAt,
+                orderdetails.OrderID, 
+                orderdetails.CustomerID,
+                orderdetails.Quantity, 
+                orderdetails.Amount, 
+                orderdetails.Status,  
+                orderdetails.DateTime,
                 users.Name AS VendorName,
-                products.image1 AS image
-            FROM orders
-            INNER JOIN users ON orders.VendorID = users.UserID
-            INNER JOIN products ON orders.ProductID = products.ProductID
-            WHERE orders.CustomerID = $id
+                products.image1 AS image,
+                products.Name As ProductName
+            FROM orderdetails
+            INNER JOIN users ON orderdetails.VendorID = users.UserID
+            INNER JOIN products ON orderdetails.ProductID = products.ProductID
+            WHERE orderdetails.CustomerID = $id
         ";
             $res=mysqli_query($conn,$sql);
 
@@ -69,9 +69,9 @@
                 <div>Vendor: <?php echo htmlspecialchars($row['VendorName']);?></div>
             </div>
             <div class="description1">
-            <div>Total: Rs. <?php echo htmlspecialchars($row['TotalAmount']);?></br></div>
+            <div>Total: Rs. <?php echo htmlspecialchars($row['Amount']);?></br></div>
                
-                <div>Status: <?php echo htmlspecialchars($row['OrderStatus']);?></div>
+                <div>Status: <?php echo htmlspecialchars($row['Status']);?></div>
             </div>
         </div>
         

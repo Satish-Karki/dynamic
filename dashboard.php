@@ -191,8 +191,7 @@
          
     <div class="unknown">
     
-    <?php 
-      
+    <?php
         $sql = "SELECT OrderID,ProductName, Location, DateTime, Quantity,Amount,Status FROM orderdetails where VendorId='$id'";
         $res = mysqli_query($conn, $sql);?>
             <table>
@@ -216,7 +215,7 @@
                         <td><?php echo $row['DateTime']; ?></td>
                         <td><?php echo $row['Quantity']; ?></td>
                         <td><?php echo $row['Amount']; ?></td>
-                        <td>                   
+                        <td  class="status-icon">
                             <?php 
                                 if($row['Status'] == 'Delivered') { 
                                     echo '<img src="images/delivered.png">';
@@ -228,24 +227,26 @@
                                     echo '<img src="images/rejected.png">';
                                 }
                             ?>
-                         </td>
+                        </td>
                         <td>
-                            <?php 
-                                if($row['Status'] == 'Pending'): ?>
-                                <a href="accept.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
-                                    <button>Accept</button>
-                                </a>
-                                <a href="reject.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
-                                    <button>Reject</button>
-                                </a>
-                                <?php elseif($row['Status'] == 'Shipping'): ?>
-                                    <a href="confirm_delivery.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
-                                        <button>Confirm Delivery</button>
+                            <div class="action-buttons">
+                                <?php if ($row['Status'] == 'Pending'): ?>
+                                    <a href="accept.php?id=<?php echo htmlspecialchars($row['OrderID']); ?>">
+                                        <button class="accept-btn">Accept</button>
                                     </a>
-                                   <?php else:?>
-                                        <button>No actions</button>
-                            <?php endif; ?>
-                    </td>
+                                    <a href="reject.php?id=<?php echo htmlspecialchars($row['OrderID']); ?>">
+                                        <button class="reject-btn">Reject</button>
+                                    </a>
+                                <?php elseif ($row['Status'] == 'Shipping'): ?>
+                                    <a href="confirm_delivery.php?id=<?php echo htmlspecialchars($row['OrderID']); ?>">
+                                        <button class="confirm-btn">Confirm</button>
+                                    </a>
+                                <?php else: ?>
+                                    <button class="disabled-btn">No Actions</button>
+                                <?php endif; ?>
+                            </div>
+                        </td>
+
                     </tr>
                     <?php endwhile; ?>
                 </tbody>

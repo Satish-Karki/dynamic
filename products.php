@@ -97,5 +97,4 @@
     </div>
     <script src="products.js"></script>
 </body>
-    <?php include "footer.php";?>
 </html>

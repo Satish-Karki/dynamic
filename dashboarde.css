@@ -14,6 +14,9 @@
 }
 .options a:hover{
     transform: scale(1.02);
+    background-color:#4880FF;;
+    color:white;
+    border-radius:6px;
 }
 .options img{
     width:25px;
@@ -45,11 +48,7 @@
 .options a img{
     margin-right:17px;
 }
-.dashboard a:hover{
-    background-color:#4880FF;;
-    color:white;
-    border-radius:6px;
-}
+
 #dash{
     background-color:#4880FF;
     color:white;

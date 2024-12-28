@@ -14,13 +14,13 @@
     <title>Project</title>
     <link rel="stylesheet" href="lists.css">
     <link rel="stylesheet" href="global.css">
-    
+    <link rel="stylesheet" href="dashboarde.css">
 </head>
 
 <d~iv class="dashboard">
     <div class="options">
         <h2>DashStack</h2>
-        <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>
+        <a href="dashboard.php" ><img src="images/ndashboard.png"> Dashboard</a>
         <a href="products.php"><img src="images/projects.png"> Products</a>
         <a href="productstock.php"><img src="images/projects.png">Product Stock</a>
         <a href="inbox.php"><img src="images/inbox.png">Inbox</a>

@@ -216,8 +216,36 @@
                         <td><?php echo $row['DateTime']; ?></td>
                         <td><?php echo $row['Quantity']; ?></td>
                         <td><?php echo $row['Amount']; ?></td>
-                        <td><?php if($row['Status']=='Delivered'){ ?> <img src="images/delivered.png"> <?php } else{  ?><img src="images/pending.png"><?php }?> </td>
-                        <td><a href="accept.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>"><button>Accept</button></a><a href="reject.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>"><button>Reject</button></a></td>
+                        <td>                   
+                            <?php 
+                                if($row['Status'] == 'Delivered') { 
+                                    echo '<img src="images/delivered.png">';
+                                } else if($row['Status'] == 'Pending') { 
+                                    echo '<img src="images/pending.png">';
+                                } else if($row['Status'] == 'Shipping') { 
+                                    echo '<img src="images/shipping.png">';
+                                }else if($row['Status'] == 'Rejected') { 
+                                    echo '<img src="images/rejected.png">';
+                                }
+                            ?>
+                         </td>
+                        <td>
+                            <?php 
+                                if($row['Status'] == 'Pending'): ?>
+                                <a href="accept.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
+                                    <button>Accept</button>
+                                </a>
+                                <a href="reject.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
+                                    <button>Reject</button>
+                                </a>
+                                <?php elseif($row['Status'] == 'Shipping'): ?>
+                                    <a href="confirm_delivery.php?id=<?php echo(htmlspecialchars($row['OrderID']))?>">
+                                        <button>Confirm Delivery</button>
+                                    </a>
+                                   <?php else:?>
+                                        <button>No actions</button>
+                            <?php endif; ?>
+                    </td>
                     </tr>
                     <?php endwhile; ?>
                 </tbody>

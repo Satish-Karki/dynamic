@@ -21,21 +21,39 @@
     ?>
 
     <div class="contents">
+    <div class="options">
+            <h2>DashStack</h2>
+            <a href="customerdashboard.php" id="dash"><img src="images/dashboard.png"> Orders</a>
+          
+            <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
+           
+            <div class="options-down">
+                <a href="#">Settings</a>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+
     <div class="order-details">
     <h1>Orders: </h1>
 
-    <div class="filter">
-                <label for="filter-range">Filter By Date: </label>
-                <select id="filter-range" onchange="applyFilter()">
-                    <option value="all">All</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="custom">Custom</option>
-                </select>
-                <input type="date" id="custom-start-date" class="custom-date" style="display:none;" placeholder="Start Date">
-                <input type="date" id="custom-end-date" class="custom-date" style="display:none;" placeholder="End Date">
-            </div>
+    <<div class="filter">
+    <form method="GET" id="filter-form">
+        <label for="filter-range">Filter By Date: </label>
+        <select id="filter-range" name="filter" onchange="document.getElementById('filter-form').submit()">
+            <option value="all" <?= (isset($_GET['filter']) && $_GET['filter'] == 'all') ? 'selected' : '' ?>>All</option>
+            <option value="daily" <?= (isset($_GET['filter']) && $_GET['filter'] == 'daily') ? 'selected' : '' ?>>Daily</option>
+            <option value="weekly" <?= (isset($_GET['filter']) && $_GET['filter'] == 'weekly') ? 'selected' : '' ?>>Weekly</option>
+            <option value="monthly" <?= (isset($_GET['filter']) && $_GET['filter'] == 'monthly') ? 'selected' : '' ?>>Monthly</option>
+            <option value="custom" <?= (isset($_GET['filter']) && $_GET['filter'] == 'custom') ? 'selected' : '' ?>>Custom</option>
+        </select>
+
+        <!-- Custom Date Fields -->
+        <div id="custom-date-fields" style="display: <?= (isset($_GET['filter']) && $_GET['filter'] == 'custom') ? 'block' : 'none' ?>">
+            <input type="date" name="start_date" id="custom-start-date" value="<?= $_GET['start_date'] ?? '' ?>" onchange="document.getElementById('filter-form').submit()">
+            <input type="date" name="end_date" id="custom-end-date" value="<?= $_GET['end_date'] ?? '' ?>" onchange="document.getElementById('filter-form').submit()">
+        </div>
+    </form>
+</div>
 
 
     <div class="order-items" id="order-items">

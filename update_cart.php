@@ -16,29 +16,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
 
-    $sql = "SELECT Stock FROM products WHERE ProductID = (SELECT ProductID FROM carts WHERE CartID = ? AND CustomerID = ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ii", $cartID, $customerID);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $product = mysqli_fetch_assoc($result);
+    $sql = "SELECT Stock FROM products WHERE ProductID = (SELECT ProductID FROM carts WHERE CartID = '$cartID' AND CustomerID = $customerID)";
+    $res = mysqli_query($conn, $sql);
+    $product = mysqli_fetch_assoc($res);
     $maxStock = $product['Stock'];
 
     if ($quantity > $maxStock) {
         $quantity = $maxStock;
     }
 
-    // Update the cart quantity
-    $sql = "UPDATE carts SET Quantity = ? WHERE CartID = ? AND CustomerID = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "iii", $quantity, $cartID, $customerID);
-    if (mysqli_stmt_execute($stmt)) {
+  
+    $sql = "UPDATE carts SET Quantity = '$quantity' WHERE CartID = '$cartID' AND CustomerID = '$customerID'";
+    $res = mysqli_query($conn, $sql);
+   
+    if ($res) {
         header("Location: cart.php"); 
         exit;
     } else {
         echo "Failed to update cart.";
     }
 
-    mysqli_stmt_close($stmt);
 }
 ?>

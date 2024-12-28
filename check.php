@@ -7,13 +7,13 @@ if (isset($_POST['submit'])) {
 
     include "databaseconn.php";
 
-    $sql = "SELECT UserId, Email, PasswordHash, UserType FROM users WHERE Email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT UserId, Email, PasswordHash, UserType FROM users WHERE Email = '$email'";
+    $res = mysqli_query($conn,$sql);
 
-    if ($row = $result->fetch_assoc()) {
+    if ($res) {
+       
+        $row = mysqli_fetch_assoc($res);
+    if ($row) {
     
         if (password_verify($password, $row['PasswordHash'])) {
             $_SESSION['user_login'] = $row['UserId'];
@@ -34,5 +34,8 @@ if (isset($_POST['submit'])) {
 } else {
     header("Location: login.php");
     exit();
-}
+}}
+else{
+    header("location:login.php");
+};
 ?>

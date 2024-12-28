@@ -2,7 +2,6 @@
 session_start();
 include "databaseconn.php";
 
-// Check if the form is submitted
 if (!isset($_POST['submit'])) {
     header("location:home.php");
     exit;
@@ -22,26 +21,25 @@ $feedback = htmlspecialchars($_POST['feedback'], ENT_QUOTES);
 try {
     $smail = new PHPMailer(true);
 
-    // Server settings
     $smail->isSMTP();
     $smail->Host = 'smtp.gmail.com';
     $smail->SMTPAuth = true;
-    $smail->Username = 'satishkarki1000@gmail.com'; // Your Gmail address
-    $smail->Password = 'kybr zddx pggd wdlq'; // Your Gmail App Password
+    $smail->Username = 'satishkarki1000@gmail.com';
+    $smail->Password = 'kybr zddx pggd wdlq'; 
     $smail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $smail->Port = 465;
 
-    // Recipients
-    $smail->setFrom('satishkarki1000@gmail.com', 'Customer Support'); // Your email as the sender
-    $smail->addAddress('satishkarki1000@gmail.com'); // Your email to receive the feedback
+  
+    $smail->setFrom('satishkarki1000@gmail.com', 'Customer Support'); 
+    $smail->addAddress('satishkarki1000@gmail.com'); 
 
-    // Email content
+   
     $smail->isHTML(true);
     $smail->Subject = 'Customer Feedback';
     $smail->Body = "<p><strong>From:</strong> $name ($email)</p>
                     <p><strong>Feedback:</strong><br>$feedback</p>";
 
-    // Send the email
+
     if ($smail->send()) {
         $_SESSION['message'] = 'Your feedback has been sent successfully.';
     } else {

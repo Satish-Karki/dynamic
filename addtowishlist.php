@@ -15,10 +15,10 @@ $scroll = isset($_GET['scroll']) ? intval($_GET['scroll']) : 0;
 
 include "databaseconn.php";
 
-$stmt = $conn->prepare("INSERT INTO wishlists (CustomerID, ProductID) VALUES (?, ?)");
-$stmt->bind_param("ii", $id, $productid);
+$sql ="INSERT INTO wishlists (CustomerID, ProductID) VALUES ('$id','$productid')";
+$res=mysqli_query($conn,$sql);
 
-if ($stmt->execute()) {
+if ($res) {
     $message = urlencode("Added to wishlist successfully.");
     if ($source === 'productdetails') {
         header("location:productdetails.php?id=$productid&message=$message");
@@ -31,6 +31,3 @@ if ($stmt->execute()) {
     header("location:shop.php?id=$productid&message=$message");
 }
 
-
-$stmt->close();
-$conn->close();

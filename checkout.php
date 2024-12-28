@@ -14,12 +14,12 @@ $fromCart = isset($_GET['from']) && $_GET['from'] === 'cart';
 $product = null;
 
 if ($productID) {
-    $sql = "SELECT ProductID, Name, Price FROM products WHERE ProductID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $productID);
-    $stmt->execute();
-    $product = $stmt->get_result()->fetch_assoc();
-    $stmt->close();
+    $sql = "SELECT ProductID, Name, Price FROM products WHERE ProductID = $productID";
+    $res = mysqli_query($conn, $sql);
+
+    if ($res) {
+        $product = mysqli_fetch_assoc($res);
+    }
 
     if (!$product) {
         header("Location: home.php");
@@ -27,13 +27,12 @@ if ($productID) {
     }
 }
 
-
 if (!$productID && !$fromCart) {
     header("Location: home.php");
     exit();
 }
 
-$conn->close();
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

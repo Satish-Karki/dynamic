@@ -60,14 +60,12 @@ if (isset($_POST['submit'])) {
 
     $sql = "UPDATE products SET Name='$name', Category='$category', Capacity='$capacity', Description='$description', Price='$price', Stock='$stock'";
 
-    // Append image fields to the query if new images were uploaded
     foreach ($uploadedFiles as $key => $path) {
         $sql .= ", $key='$path'";
     }
 
     $sql .= " WHERE ProductID=$id";
 
-    // Execute the query
     if (mysqli_query($conn, $sql)) {
         $message = "Product updated successfully!";
         

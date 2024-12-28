@@ -1,6 +1,7 @@
 .profile{
     display: flex;
     margin-left: 1%;
+    background-color: #f0f0f0;
 }
 .user-info {
     background: #fff;
@@ -8,8 +9,9 @@
     border-radius: 12px;
     width: 400px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
+    margin-left:4%;
     overflow: hidden;
+ 
 }
 
 .user-info::before {

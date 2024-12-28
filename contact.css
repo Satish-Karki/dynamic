@@ -2,14 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333; /* Dark grey for text */
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f0f0f0; /* Light grey background */
-}
+
 
 .contactform {
     display: flex;
@@ -30,7 +23,7 @@ form {
     display: flex;
     flex-direction: column;
     padding: 40px;
-    background: linear-gradient(135deg, #10002B, #240046); /* Black to dark grey gradient */
+    height: 550px;
     border-radius: 12px;
     max-width: 600px;
     width: 100%;
@@ -92,5 +85,6 @@ label {
 
 textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 100px;
+    resize: none;
 }

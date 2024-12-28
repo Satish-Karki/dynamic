@@ -55,9 +55,12 @@
             <td><?php echo $row['Price'];?></td>
             <td><?php echo $row['Stock'];?></td>
             <td>
-                 <a href="editproduct.php?id=<?php echo $row['ProductID']; ?>" class="btn btn--small" id="btn">Edit</a>
-                 <a href="delete.php?id=<?php echo$row['ProductID']; ?>" class="btn btn--danger btn--small" id="btn">Delete</a>
+                <div class="btn-container">
+                    <a href="editproduct.php?id=<?php echo $row['ProductID']; ?>" class="btn btn--small">Edit</a>
+                    <a href="delete.php?id=<?php echo $row['ProductID']; ?>" class="btn btn--danger btn--small">Delete</a>
+                </div>
             </td>
+
             </tr>
             <?php 
                 endwhile;

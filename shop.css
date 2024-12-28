@@ -108,14 +108,14 @@ a{
 
 
 .price-cart a:hover .cart-icon {
-    transform: scale(1.2); /* Slight zoom on hover */
+    transform: scale(1.2); 
 }
 
 #add-to-cart {
     padding: 8px 16px;
     cursor: pointer;
 }
-/* Wishlist Button Styling */
+/* Wishlist Button  */
 .wishlist-btn {
     align-items: center;
     display: flex;

@@ -1,9 +1,6 @@
 html {
     scroll-behavior: smooth;
 }
-
-
-
 .contactform {
     display: flex;
     flex-direction: column;
@@ -14,11 +11,10 @@ html {
 
 h2 {
     font-size: 36px;
-    color: #10002B; /* Dark color for heading */
+    color: #10002B;
     margin-bottom: 30px;
 }
 
-/* Form container with black and white gradient */
 form {
     display: flex;
     flex-direction: column;
@@ -30,36 +26,33 @@ form {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Label styling */
 label {
-    color: #fff; /* White text */
+    color: #fff;
     font-size: 18px;
     margin-bottom: 8px;
     align-self: flex-start;
 }
 
-/* Input and textarea styling */
 #name, #email, #msg {
     padding: 15px;
     margin-bottom: 20px;
     font-size: 16px;
     border-radius: 10px;
-    border: 1px solid #ddd; /* Light grey border */
-    background-color: #fff; /* White background for inputs */
-    color: #333; /* Dark grey text */
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333; 
     transition: all 0.3s ease;
 }
 
-/* Focus state for input and textarea */
 #name:focus, #email:focus, #msg:focus {
-    border-color: #10002B; /* Dark color on focus */
+    border-color: #10002B; 
     outline: none;
-    background-color: #f5f5f5; /* Slightly lighter background on focus */
+    background-color: #f5f5f5;
 }
 
-/* Submit button styling */
+/* Submit button  */
 #button {
-    background-color: #000000; /* Dark color for button */
+    background-color: #000000;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -71,15 +64,14 @@ label {
     margin-top: 20px;
 }
 
-/* Button hover and active states */
 #button:hover {
-    background-color: #240046; /* Lighter dark color on hover */
+    background-color: #240046;
     transform: scale(1.05);
     opacity: 0.9;
 }
 
 #button:active {
-    background-color: #3C096C; /* Even lighter on click */
+    background-color: #3C096C;
     transform: scale(1);
 }
 

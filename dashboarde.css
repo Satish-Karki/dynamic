@@ -31,7 +31,7 @@
 .options-down a{
     text-align:center;  
 }
-a{
+.options a{
     padding: 15px 11px;
     width:90%;
     border:none;
@@ -42,7 +42,7 @@ a{
     font-size:13px; 
    
 }
-a img{
+.options a img{
     margin-right:17px;
 }
 .dashboard a:hover{

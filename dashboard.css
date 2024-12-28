@@ -123,19 +123,18 @@
 
 .action-buttons {
     display: flex;
-    justify-content: space-around  ;   /* Centers the buttons horizontally */
-    align-items: center;       /* Centers them vertically */
+    justify-content: center;
+    align-items: center; 
     gap: 10px;
-    border:2px solid black;
-    width: 100%;               /* Ensures the container takes full width */
+    width: 100%;    
+  
 }
 
 .action-buttons button {
-    flex-shrink: 0;            /* Prevents buttons from shrinking */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;               /* Auto width to fit content */
+    width: 98.37px;
     height: 30px;
     border-radius: 5px;
     font-size: 12px;
@@ -146,8 +145,6 @@
     transition: all 0.3s ease-in-out;
     position: relative;
 }
-
-
 
 .action-buttons .accept-btn {
     background: #1e3a8a; /* Royal blue gradient */
@@ -164,6 +161,7 @@
 .action-buttons .confirm-btn {
     background: linear-gradient(45deg, #d19a10, #ffd700); /* Gold gradient */
     color: black;
+    border:2px solid black;
 }
 
 .action-buttons .disabled-btn {

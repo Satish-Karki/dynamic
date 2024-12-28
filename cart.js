@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const value = parseInt(input.value, 10);
 
         if (value > max) {
-            input.value = max; 
+            input.value = max;
             alert(`Only ${max} are available in stock right now.`);
         } else if (value < 1) {
-            input.value = 1; 
+            input.value = 1;
         }
     };
 

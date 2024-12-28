@@ -31,11 +31,11 @@ html{
     border-color: red;
 }
 .thumbnail img{
-    width: 80px; /* Fixed width */
-    height: 80px; /* Fixed height */
-    object-fit: cover; /* Ensures the image fills the box without distortion */
-    display: block; /* Ensures the image doesn't add extra inline spacing */
-    margin: 0 auto; /* Center the image inside the card */
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
 .main-image {
@@ -49,9 +49,9 @@ html{
 .main-image img{
     width: 500px;
     height: 500px;
-    object-fit: cover; 
-    display: block; 
-    margin: 0 auto; /* Center the image inside the card */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
 }
 
 
@@ -170,7 +170,6 @@ html{
    background-color: #fff;
    color:black;
    padding:10px;
-
 }
 a{
     text-decoration: none;
@@ -207,14 +206,14 @@ a{
 .hidden {
     display: none;
 }
-/* Review Form Styling */
+/* Review Form */
 form[name="review-box"] {
-    background-color: #ffffff; /* Black background */
-    color: #000; /* White text */
-    padding: 20px; /* Padding around the form */
-    border-radius: 8px; /* Rounded corners */
-    border: 1px solid #fff; /* White border */
-    margin-top: 20px; /* Space above the form */
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    margin-top: 20px;
 }
 
 form[name="review-box"] label {
@@ -232,11 +231,13 @@ form[name="review-box"] textarea {
     padding: 10px;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    resize: vertical; /* Allow resizing vertically only */
+    margin-bottom: 20px;
 }
 
 form[name="review-box"] button {
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
+    background-color: #fff;
+    color: #000;
     border: 1px solid #fff;
     border-radius: 5px;
     padding: 10px 15px;
@@ -247,11 +248,11 @@ form[name="review-box"] button {
 }
 
 form[name="review-box"] button:hover {
-    background-color: #000; 
-    color: #fff; 
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
 }
 
-
+/* Reviews List Styling */
 #reviewList {
     margin-top: 30px;
 }
@@ -286,7 +287,7 @@ form[name="review-box"] button:hover {
 
 .review .review-date {
     font-size: 12px;
-    color: #ccc; 
+    color: #ccc; /* Grey color for date */
     margin-left: 10px;
 }
 

@@ -17,7 +17,7 @@
     
 </head>
 
-<div class="dashboard">
+<d~iv class="dashboard">
     <div class="options">
         <h2>DashStack</h2>
         <a href="dashboard.php" ><img src="images/dashboard.png"> Dashboard</a>

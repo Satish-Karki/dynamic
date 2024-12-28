@@ -68,9 +68,13 @@
                 <div><?php echo htmlspecialchars($row['ProductName']);?></div>
                 <div>Vendor: <?php echo htmlspecialchars($row['VendorName']);?></div>
             </div>
-            <div>Total: Rs. <?php echo htmlspecialchars($row['TotalAmount']);?></div>
-            <div><?php echo htmlspecialchars($row['OrderStatus']);?></div>
+            <div class="description1">
+            <div>Total: Rs. <?php echo htmlspecialchars($row['TotalAmount']);?></br></div>
+               
+                <div>Status: <?php echo htmlspecialchars($row['OrderStatus']);?></div>
+            </div>
         </div>
+        
         <?php endwhile; ?>
     </div>
 

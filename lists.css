@@ -45,3 +45,50 @@
             padding:20px;
             border-radius:15px;
         }
+/* Ensure table cells align content properly */
+tbody td {
+    vertical-align: middle; /* Aligns buttons in the center of the row */
+}
+
+/* Align buttons horizontally */
+.btn-container {
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 10px; /* Add space between buttons */
+    justify-content: start; /* Align buttons to the left */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-flex; /* Ensures button content aligns */
+    align-items: center; /* Center-align text/icons inside buttons */
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Edit Button */
+.btn--small[href*="editproduct"] {
+    background-color: #4caf50; /* Green background */
+    color: #fff;
+    border: 1px solid #4caf50;
+}
+
+.btn--small[href*="editproduct"]:hover {
+    background-color: #45a049;
+}
+
+/* Delete Button */
+.btn--danger {
+    background-color: #f44336; /* Red background */
+    color: #fff;
+    border: 1px solid #f44336;
+}
+
+.btn--danger:hover {
+    background-color: #d32f2f;
+}

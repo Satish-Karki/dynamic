@@ -1,21 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const tabs = document.querySelectorAll('.tab');
-    const panels = document.querySelectorAll('.tab-panel');
+   
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.querySelector('.main-image img');
 
    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active')); 
-            tab.classList.add('active'); 
+    const toggleReviewsBtn = document.getElementById('toggleReviewsBtn');
+    const reviewList = document.getElementById('reviewList');
 
-            panels.forEach(panel => panel.classList.add('hidden')); 
-            const panelId = tab.getAttribute('data-tab'); 
-            document.getElementById(panelId).classList.remove('hidden');
-        });
+    toggleReviewsBtn.addEventListener('click', () => {
+       
+        if (reviewList.style.display === 'none' || reviewList.style.display === '') {
+            reviewList.style.display = 'block';
+            toggleReviewsBtn.textContent = 'Hide Reviews';
+        } else {
+            reviewList.style.display = 'none';
+            toggleReviewsBtn.textContent = 'See Reviews';
+        }
     });
-
     thumbnails.forEach(thumbnail => {
         thumbnail.addEventListener('click', function() {
             thumbnails.forEach(thumbnail => thumbnail.classList.remove('selected'));

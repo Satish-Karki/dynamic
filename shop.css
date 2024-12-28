@@ -59,6 +59,7 @@ a{
     background: #fff;
     padding: 30px;
     border-radius: 0;
+    max-height: 60%;
 }
 
 .product-card img {

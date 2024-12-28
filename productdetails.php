@@ -76,22 +76,18 @@ $row = mysqli_fetch_assoc($res);
 
             </div>
         </div>
-        <div class="tabs">
      
-            <button class="tab active" data-tab="specification">Specification</button>
-            <button class="tab" data-tab="reviews">Reviews</button>
+        <div class="tabs">
+            <button class="tab active" data-tab="reviews"> <h2>Reviews</h2></button>
         </div>
         <div class="tab-content">
-          
-            <div class="tab-panel" id="specification">
-                <p>Specifications: <br> Energy Rating: 5 Star <br> Power Consumption: 200W <br> Cooling Technology: SpaceMax™</p>
-            </div>
-                <div class="tab-panel hidden" id="reviews">
-                <h2>Reviews</h2>
+                
                 <form action="review.php" method="POST" name="review-box" class="review-form">
                     <div class="review-box-container">
-                        <textarea id="reviewText" name="reviewtext" rows="3" cols="40" placeholder="Write your review here..." required></textarea>
+                      
+                        <label>Rate this product:</label>
                         <div class="star-rating">
+                           
                             <input type="radio" id="star5" name="rating" value="5" required>
                             <label for="star5" title="5 stars">&#9733;</label>
 
@@ -107,45 +103,50 @@ $row = mysqli_fetch_assoc($res);
                             <input type="radio" id="star1" name="rating" value="1">
                             <label for="star1" title="1 star">&#9733;</label>
                         </div>
+                      
                     </div>
+                    <textarea id="reviewText" name="reviewtext" rows="3" cols="40" placeholder="Write your review here..." ></textarea>
+                    <div class="review-btn">
                     <button type="submit" class="btn" name="submit">Submit Review</button>
+                    </div>
                     <input type="hidden" name="productid" value="<?php echo $id; ?>">
                 </form>
 
 
 
-                <h3>Other Reviews:</h3>
-                <div id="reviewList">
+                <button id="toggleReviewsBtn" class="btn">See Reviews</button>
+
+                <div class="reviewList" id="reviewList" style="display: none;">
                     <?php
-                
-                        $sql = "SELECT reviews.*, users.Name
-                        FROM reviews
-                        INNER JOIN users ON reviews.CustomerID = users.UserID
-                        WHERE reviews.ProductID = $id
-                        ORDER BY reviews.ReviewedAt DESC";
-                        $result = mysqli_query($conn, $sql);
+                    $sql = "SELECT reviews.*, users.Name
+                            FROM reviews
+                            INNER JOIN users ON reviews.CustomerID = users.UserID
+                            WHERE reviews.ProductID = $id
+                            ORDER BY reviews.ReviewedAt DESC";
+                    $result = mysqli_query($conn, $sql);
 
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<div class='review'>
-                    
-                                <strong>" . htmlspecialchars($row['Name']) . "</strong> ";
-                                echo "<span class='review-stars'>";
+                                <div class='upper'>
+                                    <span><strong>" . htmlspecialchars($row['Name']) . "</strong></span>
+                                    <span class='review-stars'>";
                                     for ($i = 1; $i <= 5; $i++) {
-                                        echo $i <= $row['Rating'] ? "&#9733;" : "&#9734;"; 
+                                        echo $i <= $row['Rating'] ? "&#9733;" : "&#9734;";
                                     }
-                                    echo "</span>";
-                                    echo "<span class='review-date'>" . htmlspecialchars($row['ReviewedAt']) . "</span>";                                 
-                                echo "<p>" . nl2br(htmlspecialchars($row['ReviewText'])) .  "</p>
-                           
 
-                            </div><hr>";
+                        echo "</span>
+                                    <span class='review-date'>" . htmlspecialchars($row['ReviewedAt']) . "</span>
+                                </div>
+                                <div class='lower'>
+                                    <p>" . nl2br(htmlspecialchars($row['ReviewText'])) . "</p>
+                                </div>
+                            </div>
+                            <hr>";
                     }
                     ?>
-              
                 </div>
-            </div>
 
-        </div>
+      
     </main>
     <script src="productdetails.js"></script>
     <?php include "footer.php"; ?>

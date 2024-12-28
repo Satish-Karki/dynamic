@@ -1,24 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="customerdashboard.css">
-    <link rel="stylesheet" href="global.css">
-</head>
-<body>
 <?php
 session_start();
 if ($_SESSION['user_type'] != "Customer") {
     header("location:login.php");
 }
+
 include "navbar.php";
 include "databaseconn.php";
 
 $id = $_SESSION['user_login'];
 
-// Base SQL query
+$sql_total_paid = "
+    SELECT SUM(Amount) AS TotalPaid 
+    FROM orderdetails 
+    WHERE CustomerID = $id AND Status = 'Delivered'
+";
+$result_total_paid = mysqli_query($conn, $sql_total_paid);
+$row_total_paid = mysqli_fetch_assoc($result_total_paid);
+$total_paid = $row_total_paid['TotalPaid'] ?? 0;
+
+$sql_address_payment = "
+    SELECT Location
+    FROM orderdetails 
+    WHERE CustomerID = $id 
+    LIMIT 1
+";
+$result_address_payment = mysqli_query($conn, $sql_address_payment);
+$row_address_payment = mysqli_fetch_assoc($result_address_payment);
+$address = $row_address_payment['Location'] ?? 'No address found';
+$payment_type = 'Cash on delivery' ?? 'N/A';
+
+$sql_order_summary = "
+    SELECT SUM(Amount) AS PendingAmount 
+    FROM orderdetails 
+    WHERE CustomerID = $id AND Status IN ('Pending', 'Shipping')
+";
+$result_order_summary = mysqli_query($conn, $sql_order_summary);
+$row_order_summary = mysqli_fetch_assoc($result_order_summary);
+$pending_amount = $row_order_summary['PendingAmount'] ?? 0;
+
+$tax = round(($pending_amount + 800) * 0.13, 2);
+$total_amount = $pending_amount + 800 + $tax;
+
 $sql = "
     SELECT 
         orderdetails.OrderID, 
@@ -36,7 +58,6 @@ $sql = "
     WHERE orderdetails.CustomerID = $id
 ";
 
-// Apply filters based on GET parameters
 if (isset($_GET['filter'])) {
     $filter = $_GET['filter'];
     $start_date = $_GET['start_date'] ?? '';
@@ -53,23 +74,32 @@ if (isset($_GET['filter'])) {
     }
 }
 
-
 $res = mysqli_query($conn, $sql);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="customerdashboard.css">
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
 <div class="contents">
-<div class="options">
-            <h2>DashStack</h2>
-            <a href="customerdashboard.php"  id="dash"><img src="images/ndashboard.png"> Orders</a>
-            <a href="inboxc.php"><img src="images/inbox.png">Inbox</a>
-       
-            <div class="options-down">
-                <a href="settingsc.php">Settings</a>
-                <a href="logout.php">Logout</a>
-            </div>
+    <div class="options">
+        <h2>DashStack</h2>
+        <a href="customerdashboard.php" id="dash"><img src="images/ndashboard.png"> Orders</a>
+        <a href="inboxc.php"><img src="images/inbox.png">Inbox</a>
+        <div class="options-down">
+            <a href="settingsc.php">Settings</a>
+            <a href="logout.php">Logout</a>
         </div>
+    </div>
     <div class="order-details">
-        <h1>Orders: </h1>
+        <h1>Orders:</h1>
+
         <div class="filter">
             <form method="GET" action="customerdashboard.php" id="filter-form">
                 <label for="filter-range">Filter By Date: </label>
@@ -81,7 +111,6 @@ $res = mysqli_query($conn, $sql);
                     <option value="custom" <?= (isset($_GET['filter']) && $_GET['filter'] == 'custom') ? 'selected' : '' ?>>Custom</option>
                 </select>
 
-                <!-- Custom Date Range Inputs -->
                 <div id="custom-date-fields" style="display: <?= (isset($_GET['filter']) && $_GET['filter'] == 'custom') ? 'block' : 'none' ?>">
                     <input 
                         type="date" 
@@ -119,54 +148,45 @@ $res = mysqli_query($conn, $sql);
             <?php endwhile; ?>
         </div>
 
-        <div class="transactions">
-            <h2>Transactions History:</h2>
-            <div id="transaction-history">
-                <p>22 DEC 2023 - Rs. 220,000</p>
-            </div>
-        </div>
-
         <div class="order-summary">
             <div class="column">
-                <h3>Payment</h3>
+                <h3>Total Paid Amount</h3>
                 <div class="info">
-                    <p>Cash on Delivery</p>
+                    <p>Rs. <?php echo $total_paid; ?></p>
                 </div>
                 <h3>Need Help</h3>
                 <div class="info">
-                    <p>Order Issues</p>
-                </div>
-                <div class="info">
-                    <p>Delivery Info</p>
-                </div>
-                <div class="info">
-                    <p>Returns</p>
+                    <a href="support.php">Contact Support</a>
                 </div>
             </div>
             <div class="column">
                 <h3>Delivery</h3>
                 <div class="info">
                     <p>Address</p>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p><?php echo htmlspecialchars($address); ?></p>
+                </div>
+                <h3>Payment</h3>
+                <div class="info">
+                    <p><?php echo htmlspecialchars($payment_type); ?></p>
                 </div>
             </div>
             <div class="column">
                 <h3>Order Summary</h3>
                 <div class="info">
-                    <p>Discount</p>
-                    <p>0</p>
+                    <p>Pending Products</p>
+                    <p>Rs. <?php echo $pending_amount; ?></p>
                 </div>
                 <div class="info">
-                    <p>Delivery</p>
-                    <p>Rs 800</p>
+                    <p>Shipping</p>
+                    <p>Rs. 800</p>
                 </div>
                 <div class="info">
                     <p>Tax</p>
-                    <p>Rs 5,000</p>
+                    <p>Rs. <?php echo $tax; ?></p>
                 </div>
                 <div class="total">
-                    <p>Total</p>
-                    <p>Rs 5,800</p>
+                    <p>Total Amount</p>
+                    <p>Rs. <?php echo $total_amount; ?></p>
                 </div>
             </div>
         </div>
@@ -174,7 +194,6 @@ $res = mysqli_query($conn, $sql);
 </div>
 
 <script>
-    // Show/Hide custom date fields
     document.getElementById('filter-range').addEventListener('change', function () {
         const customFields = document.getElementById('custom-date-fields');
         if (this.value === 'custom') {
@@ -187,5 +206,5 @@ $res = mysqli_query($conn, $sql);
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
-<?php include "footer.php" ?>
+<?php include "footer.php"; ?>
 </html>

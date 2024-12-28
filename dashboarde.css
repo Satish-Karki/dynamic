@@ -1,60 +1,80 @@
- .options{
-            display:flex;
-            flex-direction:column;
-            align-items:center; 
-            background-color:#ffffff;
-            min-width: 230px;
-            gap:2px;
-            padding:10px;
-        }
+.profile {
+    display: flex;
+    margin: 2rem;
+    gap: 3rem;
+    min-height: 85vh;
+}
 
-        
-        .options-down{
-            display:flex;
-            flex-direction:column;
-            align-items:center; 
-            background-color:#ffffff;
-            width:100%;
-            margin-top:50px;
-        }
-        .options-down a{
-            text-align:center;  
-        }
-        .options-down a{
-            text-align:center;  
-        }
-        .options a{
-            padding: 15px 11px;
-            width:90%;
-            border:none;
-            background:none;
-            color:black;
-            text-decoration:none;
-            align-items:center;
-            font-size:13px; 
-           
-        }
-        .options a img{
-           
-                width: 24px; 
-                height: 24px; 
-                object-fit: cover; 
-            
-            margin-right:17px;
-        }
-        .options a:hover{
-            background-color:#4880FF;;
-            color:white;
-            border-radius:6px;
-        }
-        
-         .dashboard a:hover{
-            background-color:#4880FF;;
-            color:white;
-            border-radius:6px;
-        }
-        #dash{
-            background-color:#4880FF;
-            color:white;
-            border-radius:6px;
-        }
+.options {
+    background: #f1f1f1;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.options h2 {
+    color: #000;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(29, 29, 29, 0.1);
+}
+
+.options a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.options a:hover {
+    background: #4880FF;
+    color: #000;
+    transform: translateX(5px);
+}
+
+.options a img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.options a:hover img {
+    opacity: 1;
+}
+
+.options-down {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#dash {
+    background: rgba(255, 255, 255, 0.1);
+    color: #000;
+}
+
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        margin: 1rem;
+    }
+    
+    .options, .user-info {
+        width: 100%;
+    }
+    
+    .options {
+        margin-bottom: 2rem;
+    }
+}

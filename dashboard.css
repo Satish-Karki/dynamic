@@ -107,9 +107,70 @@
         }
         .icon
         {
-            margin-top:25px;    
+            margin-top:25px;
         }.unknown{
             background-color:white;
             padding:20px;
             border-radius:15px;
         }
+.status-icon img{
+    width: 98.37px;
+    height: 27px;
+    margin-right: 5px;
+}
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98.37px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Button Colors */
+.action-buttons .accept-btn {
+    background: #1e3a8a; /* Royal blue gradient */
+    color: white;
+}
+.action-buttons a {
+    text-decoration: none; /* Removes underline from links */
+}
+.action-buttons .reject-btn {
+    background: #c71e1e; /* Deep red gradient */
+    color: white;
+}
+
+.action-buttons .confirm-btn {
+    background: linear-gradient(45deg, #d19a10, #ffd700); /* Gold gradient */
+    color: black;
+}
+
+.action-buttons .disabled-btn {
+    background: #333; /* Dark grey for disabled actions */
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Hover Effects */
+.action-buttons button:hover {
+    transform: scale(1.08); /* Slight zoom on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-buttons button:active {
+    transform: scale(1); /* Return to original size on click */
+}

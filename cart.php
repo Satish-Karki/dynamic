@@ -88,13 +88,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                                     </form>
                             
                             </div>
-                           
                         </div>
                         <div class="total-price">
                             <h3>Total Price</h3>
                             <p class="cart-item-total">Rs.<?php echo number_format($row['UnitPrice'] * $row['Quantity'], 2); ?></p>
                         </div>
-                         </div>
+                </div>
                     </div>
                     
                 <?php endforeach; ?>

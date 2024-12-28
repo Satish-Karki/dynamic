@@ -147,35 +147,34 @@
 }
 
 .action-buttons .accept-btn {
-    background: #1e3a8a; /* Royal blue gradient */
+    background: #1e3a8a;
     color: white;
 }
 .action-buttons a {
-    text-decoration: none; /* Removes underline from links */
+    text-decoration: none; 
 }
 .action-buttons .reject-btn {
-    background: #c71e1e; /* Deep red gradient */
+    background: #c71e1e;
     color: white;
 }
 
 .action-buttons .confirm-btn {
-    background: linear-gradient(45deg, #d19a10, #ffd700); /* Gold gradient */
+    background: linear-gradient(45deg, #d19a10, #ffd700); 
     color: black;
     border:2px solid black;
 }
 
 .action-buttons .disabled-btn {
-    background: #333; /* Dark grey for disabled actions */
+    background: #333;
     color: #aaa;
     cursor: not-allowed;
 }
 
-/* Hover Effects */
 .action-buttons button:hover {
-    transform: scale(1.08); /* Slight zoom on hover */
+    transform: scale(1.08);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .action-buttons button:active {
-    transform: scale(1); /* Return to original size on click */
+    transform: scale(1);
 }

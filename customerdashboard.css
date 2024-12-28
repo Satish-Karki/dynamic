@@ -132,8 +132,7 @@
             text-align: right;
         }
         .order-items .item .image img {
-            max-width: 70px; /* Set maximum width */
-            height: 70px;    /* Set fixed height */
-            object-fit: cover; /* Maintain aspect ratio */
+            max-width: 70px;
+            height: 70px;
+            object-fit: cover;
         }
-      

@@ -105,10 +105,9 @@
         }
         
         .custom-file-upload img {
-            width: 40px; /* Adjust the size as needed */
+            width: 40px;
             height: 40px;
-            object-fit: cover; /* Ensure the image is properly cropped */
-           
+            object-fit: cover;
         }
         button{
             background-color: black;

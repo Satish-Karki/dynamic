@@ -68,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(`Only ${maxQuantity} are available in stock right now.`);
             }
         });
-
-       
         quantityInput.addEventListener("input", () => {
             checkMax(quantityInput);
             updateItemTotal(cartItem);

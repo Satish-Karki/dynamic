@@ -139,6 +139,8 @@ $otherUserName = $otherUser['Name'] ?? 'Unknown User';
     <?php include "navbar.php"; ?>
 
     <div class="chat-container">
+
+        <h1><a href="inbox.php">Go back</a>
         <h1 class="chat-header">Conversation with <?php echo htmlspecialchars($otherUserName); ?></h1>
         <div class="messages">
             <?php while ($row = mysqli_fetch_assoc($result)): ?>

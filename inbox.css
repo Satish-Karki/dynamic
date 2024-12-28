@@ -3,6 +3,10 @@
             color: black;
             font-family: Arial, sans-serif;
         }
+        .big-container{
+            margin-left: 1%;
+            display: flex;
+        }
         .inbox-container {
             margin: 20px auto;
             width: 80%;

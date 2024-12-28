@@ -25,7 +25,7 @@
             <h2>DashStack</h2>
             <a href="customerdashboard.php" id="dash"><img src="images/dashboard.png"> Orders</a>
           
-            <a href="inbox.php"><img src="images/inbox.png">Inbox</a>
+            <a href="inboxc.php"><img src="images/inbox.png">Inbox</a>
            
             <div class="options-down">
                 <a href="#">Settings</a>

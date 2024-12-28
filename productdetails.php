@@ -60,13 +60,18 @@ $row = mysqli_fetch_assoc($res);
                     <button type="submit" class="btn buy-now">Buy Now</button>
                 </form>
 
-                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">Add to Cart</a>
+                <a href="addtocart.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-cart">
+                    <button class="cart-btn">
+                        <span class="cart-text">Add to Cart</span>
+                        <img src="pic/anothercart.png" alt="Cart Icon" class="cart-icon">
+                    </button>
+                </a>
                 <a href="addtowishlist.php?id=<?php echo $row['ProductID']?>&source=productdetails" class="add-to" id="add-to-wishlist">
-                            <button class="wishlist-btn">
-                                <span class="wishlist-text">Wishlist</span>
-                                <img src="images/wishlist.png" alt="Wishlist Icon" class="wishlist-icon">
-                            </button>
-                        </a>
+                    <button class="wishlist-btn">
+                        <span class="wishlist-text">Wishlist</span>
+                        <img src="images/wishlist.png" alt="Wishlist Icon" class="wishlist-icon">
+                    </button>
+                </a>
             </div>
 
             </div>

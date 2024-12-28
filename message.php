@@ -56,84 +56,8 @@ $otherUserName = $otherUser['Name'] ?? 'Unknown User';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversation</title>
     <link rel="stylesheet" href="global.css">
-    <style>
-        body {
-            background-color: white;
-            color: black;
-            font-family: Arial, sans-serif;
-        }
-        .chat-container {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-        .chat-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .messages {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            max-height: 400px;
-            overflow-y: auto;
-            background-color: #f9f9f9;
-        }
-        .message {
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-        }
-        .message.left {
-            align-items: flex-start;
-        }
-        .message.right {
-            align-items: flex-end;
-        }
-        .message-content {
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 70%;
-        }
-        .message.left .message-content {
-            background-color: #e0e0e0;
-            text-align: left;
-        }
-        .message.right .message-content {
-            background-color: #007bff;
-            color: white;
-            text-align: right;
-        }
-        .message-date {
-            font-size: 0.8em;
-            color: gray;
-            margin-top: 5px;
-        }
-        .reply-box {
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .reply-box textarea {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
-        }
-        .reply-box button {
-            margin-left: 10px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .reply-box button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="message.css">
+    
 </head>
 <body>
     <?php include "navbar.php"; ?>

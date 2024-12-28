@@ -91,6 +91,8 @@
             font-size:0.8em;
             width: 20%; 
             max-width:20%;
+            text-align: center;
+            
           
            
         
@@ -118,18 +120,22 @@
     height: 27px;
     margin-right: 5px;
 }
-/* Action Buttons */
+
 .action-buttons {
     display: flex;
+    justify-content: space-around  ;   /* Centers the buttons horizontally */
+    align-items: center;       /* Centers them vertically */
     gap: 10px;
-    justify-content: center;
+    border:2px solid black;
+    width: 100%;               /* Ensures the container takes full width */
 }
 
 .action-buttons button {
+    flex-shrink: 0;            /* Prevents buttons from shrinking */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 98.37px;
+    width: auto;               /* Auto width to fit content */
     height: 30px;
     border-radius: 5px;
     font-size: 12px;
@@ -141,7 +147,8 @@
     position: relative;
 }
 
-/* Button Colors */
+
+
 .action-buttons .accept-btn {
     background: #1e3a8a; /* Royal blue gradient */
     color: white;
